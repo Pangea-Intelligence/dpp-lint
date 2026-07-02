@@ -28,6 +28,8 @@ payload.json  [MaterialComposition]
 1 file checked · 2 errors
 ```
 
+Want a realistic end-to-end scenario? [`examples/brandt-foerdertechnik/`](examples/brandt-foerdertechnik/) walks through a fictional mid-market machine builder checking the passport files its battery supplier delivered - including the four mistakes hidden in them.
+
 Exit codes: `0` = clean, `1` = findings, `2` = usage or internal error. For `risk`, info-level notes alone do not flip the exit code; only high or medium findings return `1`. For `lint`, an ambiguous module auto-detection counts as a usage error (`2`), because the fix is to pass `--module`; `risk` treats ambiguous payloads conservatively and keeps its findings instead. This makes dpp-lint straightforward to wire into CI pipelines and pre-commit hooks.
 
 ## Commands

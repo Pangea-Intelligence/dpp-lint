@@ -1,0 +1,22 @@
+{
+  "materials": [
+    {
+      "material": "cobalt",
+      "originCountry": "CD",
+      "share": 0.55,
+      "smelter": {
+        "name": "Kivu Metals Refining SA",
+        "country": "CD"
+      }
+    },
+    {
+      "material": "natural graphite",
+      "originCountry": "CN",
+      "share": 0.8,
+      "smelter": {
+        "name": "Shandong Anode Materials Co.",
+        "country": "CN"
+      }
+    }
+  ]
+}

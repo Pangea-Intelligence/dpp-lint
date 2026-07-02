@@ -1,0 +1,36 @@
+{
+  "batteryCategory": "industrial",
+  "operatorInformation": {
+    "identifier": "BRANDT-DE-AUG",
+    "emailAddress": "compliance@brandt-ft.example",
+    "postalAddress": {
+      "addressCountry": "Germany",
+      "streetAddress": "Dieselstr. 18",
+      "postalCode": "86368"
+    },
+    "contactName": "Miriam Keller",
+    "webAddress": "https://www.brandt-ft.example"
+  },
+  "productIdentifier": "NC-Trak-48-LFP",
+  "batteryStatus": "Original",
+  "puttingIntoService": "2026-06-02T10:00:00.000+02:00",
+  "batteryMass": "48.2",
+  "manufacturingDate": "2026-05-11T08:30:00.000+02:00",
+  "batteryPassportIdentifier": "urn:nordcell:NC-Trak-48/SN-2026-041377",
+  "manufacturerInformation": {
+    "identifier": "NORDCELL-SE-LUL",
+    "emailAddress": "passport(at)nordcell.example",
+    "postalAddress": {
+      "addressCountry": "Sweden",
+      "streetAddress": "Batterivagen 4",
+      "postalCode": "97125"
+    },
+    "contactName": "Elin Sandberg",
+    "webAddress": "https://www.nordcell.example"
+  },
+  "manufacturingPlace": {
+    "addressCountry": "Sweden",
+    "streetAddress": "Batterivagen 4",
+    "postalCode": "97125"
+  }
+}
