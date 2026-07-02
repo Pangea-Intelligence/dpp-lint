@@ -1,6 +1,6 @@
 {
   "name": "dpp-lint",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Linter and risk screener for EU Digital Product Passports. Validates battery passport payloads against DIN DKE SPEC 99100 and screens raw material origins against open due-diligence risk data. By Pangea Intelligence.",
   "keywords": [
     "dpp",
