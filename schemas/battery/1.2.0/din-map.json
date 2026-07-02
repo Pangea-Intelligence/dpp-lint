@@ -308,6 +308,591 @@
         "description": "Value that defines supply chain due dilligence performance",
         "kind": "other"
       }
+    },
+    "CarbonFootprintForBatteries": {
+      "CarbonFootprintForBatteries": {
+        "description": "The battery passport must contain carbon footprint per functional unit of the battery as declared in the battery carbon footprint declaration in accordance with the entry into force of the implementing acts on the format of declaration. Reference: REGULATION (EU) 2023/1542 aka EU Battery Regulation",
+        "see": [
+          "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1542"
+        ],
+        "kind": "other"
+      },
+      "batteryCarbonFootprint": {
+        "description": "The carbon footprint of the battery, calculated as kg of carbon dioxide equivalent per one kWh of the total energy provided by the battery over its expected service life, as declared in the Carbon Footprint Declaration.\nDIN DKE Spec 99100 chapter reference: 6.3.2",
+        "dinChapter": "6.3.2",
+        "kind": "property"
+      },
+      "carbonFootprintPerLifecycleStage": {
+        "description": "The carbon footprint of the battery as share of total Battery Carbon Footprint, differentiated per life cycle stages raw material extraction, battery production, distribution and recycling.\n\nDIN DKE Spec 99100 chapter reference: \n6.3.3: Raw material extraction\n6.3.4: Main production\n6.3.5: Distrinution\n6.3.6: EoL/Recycling",
+        "dinChapter": "6.3.3",
+        "kind": "property"
+      },
+      "carbonFootprintPerformanceClass": {
+        "description": "The carbon footprint performance class that the relevant battery model per manufacturing plant corresponds to.\n\nDIN DKE Spec 99100 chapter reference:  6.3.7",
+        "dinChapter": "6.3.7",
+        "kind": "property"
+      },
+      "carbonFootprintStudy": {
+        "description": "A web link to get access to a public version of the study supporting the carbon footprint values.\n\nDIN DKE Spec 99100 chapter reference:  6.3.8",
+        "dinChapter": "6.3.8",
+        "kind": "property"
+      },
+      "absoluteCarbonFootprint": {
+        "description": "As a non-mandatory data attribute, the battery passport should include the battery carbon footprint in absolute terms.\n\nThe absolute battery carbon footprint should be calculated as kilograms of carbon dioxide equivalent, without reference to the functional unit as prescribed by the battery regulation.\n\nDIN DKE Spec 99100 chapter reference: 6.3.10",
+        "dinChapter": "6.3.10",
+        "kind": "property"
+      },
+      "BatteryCarbonFootprint": {
+        "description": "The battery carbon footprint is an aggregation of the carbon footprint of the individual lifecycle stages",
+        "kind": "other"
+      },
+      "CarbonFootprints": {
+        "description": "CarbainFootprints per lifecycle stage",
+        "kind": "other"
+      },
+      "CarbonFootprintPerformanceClass": {
+        "description": "EV, industrial and LMT batteries shall bear a conspicuous, clearly legible and indelible label indicating the carbon footprint of the battery and the carbon footprint performance class that the relevant battery model per manufacturing plant corresponds to. The carbon footprint performance class shall be accessible via the battery passport. A meaningful number of classes of performance will be developed (?) with category A being the best class with the lowest carbon footprint life cycle impact.",
+        "kind": "other"
+      },
+      "CarbonFootprintPerLifecycleStageEntity": {
+        "description": "The carbon footprint of the battery as share of total Battery Carbon Footprint, differentiated per life cycle stage raw material extraction, main production, distribution and end of life and recycling.",
+        "kind": "other"
+      },
+      "kilogramm": {
+        "preferredName": "Kilogramm Co2 Equivalent",
+        "kind": "other"
+      },
+      "lifecycleStage": {
+        "description": "The description of the life cycle stage",
+        "kind": "property"
+      },
+      "carbonFootprint": {
+        "description": "Carbon footprint of the individual lifecycle stage",
+        "kind": "property"
+      }
+    },
+    "Circularity": {
+      "Circularity": {
+        "description": "Dismantling information (including at least: exploded diagrams of the battery system/pack showing the location of battery cells; disassembly sequences; type and number of fastening techniques to be unlocked; tools required for disassembly; warnings if risk of damaging parts exists; amount of cells used and layout); part numbers for components and contact details of sources for replacement spares; safety measures (Annex XIII (2b-d)); usable extinguishing agent (Annex VI, Part A(9)). 2024 Circulor (for and on behalf of the Battery Pass Consortium). This work is licensed under a Creative Commons License Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Readers may reproduce material for their own publications, as long as it is not sold commercially and is given appropriate attribution.",
+        "kind": "other"
+      },
+      "dismantlingAndRemovalInformation": {
+        "preferredName": "dismantling and removal information",
+        "description": "Dismantling and Removal information, including at least:- Exploded diagrams of the battery system/pack showing the location of battery cells- Disassembly sequences- Type and number of fastening techniques to be unlocked- Tools required for disassembly- Warnings if risk of damaging parts exists- Amount of cells used and layout. BR Annex XIII (2c)\n\nDIN DKE Spec 99100 chapter reference: 6.6.1.2",
+        "dinChapter": "6.6.1.2",
+        "kind": "property"
+      },
+      "sparePartSources": {
+        "preferredName": "spare part sources",
+        "description": "Contact details of sources for replacement spares. Postal address, including name and brand names, postal code and place, street and number, country, telephone, if any. BR Annex XIII (2b)\n\nDIN DKE Spec 99100 chapter reference: 6.6.1.3",
+        "dinChapter": "6.6.1.3",
+        "kind": "property"
+      },
+      "recycledContent": {
+        "preferredName": "recycled content",
+        "description": "Share of material recovered from waste present in active materials for each battery model per year and per manufacturing plant.\n\nDIN DKE Spec 99100 chapter reference:  6.6.2.3 - 6.6.2.10",
+        "dinChapter": "6.6.2.3",
+        "kind": "property"
+      },
+      "safetyMeasures": {
+        "preferredName": "safety measures",
+        "description": "Safety measures and instructions should also take past negative and extreme events as well as the separate data attributes ?battery status? and ?battery composition/chemistry? into account.\n\nDIN DKE Spec 99100 chapter reference: 6.6.1.5",
+        "dinChapter": "6.6.1.5",
+        "kind": "property"
+      },
+      "endOfLifeInformation": {
+        "preferredName": "end of life information",
+        "description": "Producer or producer responsibility organisations shall make information available to distributors and end-users on: the role of end-users in contributing to waste prevention, including by information on good practices and recommendations concerning the use of batteries aiming at extending their use phase and the possibilities of re-use, preparing for re-use, preparing for repurpose, repurposing and remanufacturing.\n\nDIN DKE Spec 99100 chapter reference: 6.6.3.2 - 6.6.3.4",
+        "dinChapter": "6.6.3.2",
+        "kind": "property"
+      },
+      "renewableContent": {
+        "preferredName": "renewable content",
+        "description": "Share of renewable material content. A renewable material is a material made of natural resources that can be replenished. \n\nDIN DKE Spec 99100 chapter reference: 6.6.2.11",
+        "dinChapter": "6.6.2.11",
+        "kind": "property"
+      },
+      "DocumentationList": {
+        "description": "A collection of required documentation to support EoL actions.",
+        "kind": "other"
+      },
+      "SafetyMeasures": {
+        "preferredName": "safety measures",
+        "kind": "other"
+      },
+      "EndOfLifeInformation": {
+        "preferredName": "end of life information",
+        "kind": "other"
+      },
+      "RenewableContent": {
+        "preferredName": "renewable content",
+        "kind": "other"
+      },
+      "DismantlingAndRemovalDocumentation": {
+        "preferredName": "dismantling and removal documentation",
+        "description": "Dismantling and Removal information, including at least:- Exploded diagrams of the battery system/pack showing the location of battery cells- Disassembly sequences- Type and number of fastening techniques to be unlocked- Tools required for disassembly- Warnings if risk of damaging parts exists- Amount of cells used and layoutEUBR: Annex XIII (2c)",
+        "kind": "other"
+      },
+      "SparePartSupplierEntity": {
+        "preferredName": "spare part supplier",
+        "description": "The part numbers for components should be provided together with the postal address, e-mail address and web address of the sources for spare parts.",
+        "kind": "other"
+      },
+      "RecycledContentEntity": {
+        "preferredName": "recycled content",
+        "description": "A battery passport must include recycled content information.\n\nThe content information must include the percentage share of nickel that is present in active materials and that has been recovered from battery manufacturing waste, for each battery model per year and per manufacturing plant.",
+        "kind": "other"
+      },
+      "SafetyMeasuresEntity": {
+        "preferredName": "safety measures",
+        "description": "The safety measures should be provided via the instruction manual as URL linking to PDF.",
+        "kind": "other"
+      },
+      "EndOfLifeInformationEntity": {
+        "preferredName": "end of life information",
+        "kind": "other"
+      },
+      "documentType": {
+        "preferredName": "document type",
+        "description": "Describes type for document e.g. Dismantling manual",
+        "kind": "property"
+      },
+      "mimeType": {
+        "preferredName": "mime type",
+        "description": "Defines internet media typ to determin how to interpret the documentURL",
+        "kind": "property"
+      },
+      "documentURL": {
+        "preferredName": "document URL",
+        "description": "Link to document",
+        "kind": "property"
+      },
+      "nameOfSupplier": {
+        "preferredName": "name of supplier",
+        "description": "Name of Supplier",
+        "kind": "property"
+      },
+      "addressOfSupplier": {
+        "preferredName": "address of supplier",
+        "description": "Postal address of supplier for spare parts.",
+        "kind": "property"
+      },
+      "emailAddressOfSupplier": {
+        "preferredName": "e-mail address of supplier",
+        "description": "E-mail address of supplier for spare parts.",
+        "kind": "property"
+      },
+      "supplierWebAddress": {
+        "preferredName": "WEB address of supplier",
+        "description": "Web address of supplier for spare parts.",
+        "kind": "property"
+      },
+      "components": {
+        "preferredName": "components",
+        "description": "Components available at supplier",
+        "kind": "property"
+      },
+      "preConsumerShare": {
+        "preferredName": "pre consumer share",
+        "description": "Recycled material share from pre-consumer waste (manufacturing waste, excluding run-around scrap) of the active material.",
+        "kind": "property"
+      },
+      "recycledMaterial": {
+        "preferredName": "recycled material",
+        "description": "Name of recycled material",
+        "kind": "property"
+      },
+      "postConsumerShare": {
+        "preferredName": "post consumer share",
+        "description": "Recycled material share from post-consumer waste (end-of-life scrap) of the active material.",
+        "kind": "property"
+      },
+      "safetyInstructions": {
+        "preferredName": "safety instructions",
+        "description": "- Safety measures. - Necessary safety instructions to handle waste batteries, including in relation to the risks associated with, and the handling of, batteries containing lithium.",
+        "kind": "property"
+      },
+      "extinguishingAgents": {
+        "preferredName": "extinguishing agents",
+        "description": "Usable extinguishing agents refering to classes of extinguishers (A, B, C, D, K).EUBR: Annex XIII (1a) ? Annex VI Part A (9)",
+        "kind": "property"
+      },
+      "wastePrevention": {
+        "preferredName": "waste prevention",
+        "description": "Prevention and management of waste batteries: Point (a) of Article 60(1): Information on the role of end-users in contributing to waste prevention, including by information on good practices and recommendations concerning the use of batteries aiming at extending their use phase and the possibilities of re-use, preparing for re-use, preparing for repurpose, repurposing and remanufacturing",
+        "kind": "property"
+      },
+      "separateCollection": {
+        "preferredName": "separate collection",
+        "description": "Prevention and management of waste batteries: Point (b) of Article 60(1): Information on the role of end-users in contributing to the separate collection of waste batteries in accordance with their obligations under Article 51 so as to allow their treatment",
+        "kind": "property"
+      },
+      "informationOnCollection": {
+        "preferredName": "information on collection",
+        "description": "Prevention and management of waste batteries: Point (c) of Article 60(1): information on the separate collection, the take back, the collection points and preparing for re-use, preparing for repurposing, and recycling operations available for waste batteries",
+        "kind": "property"
+      },
+      "AddressOfSupplier": {
+        "see": [
+          "https://schema.org/address"
+        ],
+        "kind": "other"
+      },
+      "ComponentList": {
+        "description": "List of components available at supplier",
+        "kind": "other"
+      },
+      "ResourcePath": {
+        "preferredName": "Resource Path",
+        "description": "The path of a resource.",
+        "kind": "other"
+      },
+      "PostalAddress": {
+        "preferredName": "postal address",
+        "see": [
+          "https://schema.org/PostalAddress"
+        ],
+        "kind": "other"
+      },
+      "PreConsumerShare": {
+        "preferredName": "pre consumer share",
+        "kind": "other"
+      },
+      "PostConsumerShare": {
+        "preferredName": "post consumer share",
+        "kind": "other"
+      },
+      "addressCountry": {
+        "preferredName": "country",
+        "see": [
+          "https://schema.org/addressCountry"
+        ],
+        "kind": "property"
+      },
+      "postalCode": {
+        "preferredName": "Postal Code",
+        "see": [
+          "https://schema.org/postalCode"
+        ],
+        "kind": "property"
+      },
+      "streetAddress": {
+        "preferredName": "street",
+        "see": [
+          "https://schema.org/streetAddress"
+        ],
+        "kind": "property"
+      },
+      "partName": {
+        "preferredName": "part name",
+        "kind": "property"
+      },
+      "partNumber": {
+        "preferredName": "part number",
+        "description": "Part Number of Component",
+        "kind": "property"
+      }
+    },
+    "PerformanceAndDurability": {
+      "PerformanceAndDurability": {
+        "description": "Battery performance and durability data model",
+        "kind": "other"
+      },
+      "batteryTechicalProperties": {
+        "description": "This property covers all perfromance related properties",
+        "kind": "property"
+      },
+      "batteryCondition": {
+        "description": "'- Expected battery lifetime expressed in cycles, and reference test used.\n- Their expected life-time under the reference conditions for which they have been designed in terms of cycles, except for non-cycle applications, and calendar years.",
+        "kind": "property"
+      },
+      "BatteryCondition": {
+        "description": "'- Expected battery lifetime expressed in cycles, and reference test used.\n- Their expected life-time under the reference conditions for which they have been designed in terms of cycles, except for non-cycle applications, and calendar years.",
+        "kind": "other"
+      },
+      "BatteryTechnicalPropertiesEntity": {
+        "description": "Covers all Capability related data attributes",
+        "kind": "other"
+      },
+      "BatteryConditionEntity": {
+        "description": "Covers all battery lifetime relevant properties",
+        "kind": "other"
+      },
+      "originalPowerCapability": {
+        "description": "Pre-use power capability: Definition of power capability as given in Battery Regulation. \nAnnex IV Part B, point 4 --> measurement at 80 % and 20 % SoC required. This requirement may not be implementable for remaining power capability and power fade(see below). It, thus, should be reviewed together with SoC definition.\n\nDIN DKE Spec 99100 chapter reference: 6.7.3.2",
+        "dinChapter": "6.7.3.2",
+        "kind": "property"
+      },
+      "ratedMaximumPower": {
+        "description": "This data point describes the value of maximum permitted power the battery is rated for and reflects the data relevant for power limits.\n\nDIN DKE Spec 99100 chapter reference: 6.7.3.2",
+        "dinChapter": "6.7.3.2",
+        "kind": "property"
+      },
+      "powerCapabilityRatio": {
+        "preferredName": "PowerCapabilityRatio",
+        "description": "Provides information on nominal/recommended charge rate (C-rate); equal to regulation definition.",
+        "kind": "property"
+      },
+      "ratedEnergy": {
+        "description": "The certified usable battery energy is the usable battery energy according to the procedure in the UN GTR No 22 as determined during the certification of the vehicle.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.5",
+        "dinChapter": "6.7.2.5",
+        "kind": "property"
+      },
+      "expectedNumberOfCycles": {
+        "preferredName": "ExpectedNumberOfCycles",
+        "description": "Expected battery lifetime expressed in cycles.\nThe exception for non-cycle applications in Article 10 appears sensible, but is not included in the Annex XIII provision.\nThe data attribute is defined by measurement conditions of the cycle-life test such as the C-Rate (see below) and the depth of discharge in the cycle-life test\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.3",
+        "dinChapter": "6.7.6.3",
+        "kind": "property"
+      },
+      "initialSelfDischarge": {
+        "description": "Initial self-discharge in % of capacity per unit of time in defined conditions (temperature range etc) as pre-use metric. \n\nDIN DKE Spec 99100 chapter reference: 6.7.4.6",
+        "dinChapter": "6.7.4.6",
+        "kind": "property"
+      },
+      "roundtripEfficiency": {
+        "description": "Energy round trip efficiency is the ratio of the net energy delivered by a battery during a discharge test to the total energy required to restore the initial state of charge by a standard charge (see BattReg Annex IV (6)).\n\nDIN DKE Spec 99100 chapter reference: 6.7.4.2",
+        "dinChapter": "6.7.4.2",
+        "kind": "property"
+      },
+      "ratedCapacity": {
+        "description": "�Rated capacity� is the total number of ampere-hours (Ah) that can be withdrawn from a fully charged battery under reference conditions (see BattReg Annex IV (1)).\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.2",
+        "dinChapter": "6.7.2.2",
+        "kind": "property"
+      },
+      "initialInternalResistance": {
+        "description": "The battery passport can include additional information about the initial internal resistance on battery module level, if available. It should be defined and calculated analogously as the requirements on battery pack level above.\n\nDIN DKE Spec 99100 chapter reference: 6.7.5.2",
+        "dinChapter": "6.7.5.2",
+        "kind": "property"
+      },
+      "expectedLifetime": {
+        "description": "The battery passport must include information about the expected battery lifetime in calendar years.\n\nThe update interval must be upon placement on the market and upon change of the battery status.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.2",
+        "dinChapter": "6.7.6.2",
+        "kind": "property"
+      },
+      "cRate": {
+        "description": "As a non-mandatory data point the battery passport should include the ratio between nominal battery power in W and battery energy in Wh. It aims to provide an indication of the applicable discharge and charge rate in terms of rated capacity (C-rate) (see BattReg Annex IV Part B(2)).\n\nThe update interval should be upon placement on the market and upon change of the battery status.\n\nDIN DKE Spec 99100 chapter reference: 6.7.3.6",
+        "dinChapter": "6.7.3.6",
+        "kind": "property"
+      },
+      "nominalVoltage": {
+        "description": "Nominal voltage the battery is rated for.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.11",
+        "dinChapter": "6.7.2.11",
+        "kind": "property"
+      },
+      "minimumVoltage": {
+        "description": "Minimum voltage the battery is rated for.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.9",
+        "dinChapter": "6.7.2.9",
+        "kind": "property"
+      },
+      "maximumVoltage": {
+        "description": "Maximum voltage the battery is rated for.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.10",
+        "dinChapter": "6.7.2.10",
+        "kind": "property"
+      },
+      "capacityThresholdForExhaustion": {
+        "description": "The percentage of SOCE, above which the battery is still considered operational as EV battery in its current life, as provided by the economic operator.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.9",
+        "dinChapter": "6.7.6.9",
+        "kind": "property"
+      },
+      "lifetimeReferenceTest": {
+        "description": "The exception for non-cycle applications as mentioned in \"Expected lifetime: Number of charge-discharge cycles\" should apply to this data attribute as well.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.5",
+        "dinChapter": "6.7.6.5",
+        "kind": "property"
+      },
+      "cRateLifeCycleTest": {
+        "description": "The C-rate should be provided separately for both the charge and discharge of the battery, if applicable.\n\nThe exception for non-cycle applications as mentioned in \"Expected lifetime: Number of charge-discharge cycles\" should apply to this data attribute as well.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.6",
+        "dinChapter": "6.7.6.6",
+        "kind": "property"
+      },
+      "temperatureRangeIdleState": {
+        "description": "Upper an lower boundary of the surrounding temperature range, which the battery can safely withstand. \n\nDIN DKE Spec 99100 chapter reference: 6.7.6.3-4",
+        "dinChapter": "6.7.6.3",
+        "kind": "property"
+      },
+      "energyThroughput": {
+        "description": "The data attribute should be reported as measured for further potential processing. In addition, the normalisation by capacity may add a further useful value that ensures comparability among battery sizes.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.7",
+        "dinChapter": "6.7.6.7",
+        "kind": "property"
+      },
+      "capacityThroughput": {
+        "description": "The data attribute should be reported as measured for further potential processing. In addition, the normalisation by capacity may add a further useful value that ensures comparability among battery sizes.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.8",
+        "dinChapter": "6.7.6.8",
+        "kind": "property"
+      },
+      "numberOfFullCycles": {
+        "description": "Number of (full) charging and discharging cycles.\n\nDIN DKE Spec 99100 chapter reference: 6.7.6.3",
+        "dinChapter": "6.7.6.3",
+        "kind": "property"
+      },
+      "stateOfCertifiedEnergy": {
+        "preferredName": "SOCE",
+        "description": "Definition based on UNECE GTR 22: The measured or on-board UBE performance at a specific point in its lifetime, expressed as a percentage of the certified usable battery energy.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.7",
+        "dinChapter": "6.7.2.7",
+        "kind": "property"
+      },
+      "capacityFade": {
+        "description": "The capacity fade is the �Decrease over time and upon usage in the amount of charge that a battery can deliver at the rated voltage, with respect to the original rated capacity� (see BattReg Annex IV (2)) as declared by the manufacturer.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.4",
+        "dinChapter": "6.7.2.4",
+        "kind": "property"
+      },
+      "remainingEnergy": {
+        "description": "Definition from UNECE GTR 22, applicable only to EVs.\nThe energy supplied by the battery from the beginning of the test procedure used for certification until the applicable break-off criterion of the test procedure used for certification is reached.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.6",
+        "dinChapter": "6.7.2.6",
+        "kind": "property"
+      },
+      "remainingCapacity": {
+        "description": "The in-use data attribute on capacity, corresponding with the definition of rated capacity.\n\nDIN DKE Spec 99100 chapter reference: 6.7.2.3",
+        "dinChapter": "6.7.2.3",
+        "kind": "property"
+      },
+      "temperatureInformation": {
+        "description": "The battery passport must include periodically recorded information on the operating environmental conditions, including temperature.\n\nDIN DKE Spec 99100 chapter reference: 6.7.7.5 - 8",
+        "dinChapter": "6.7.7.5",
+        "kind": "property"
+      },
+      "remainingPowerCapability": {
+        "description": "'- Original power capability (in Watts) and limits, with temperature range when relevant.\n- The amount of energy that a battery is capable to provide over a given period of time under reference conditions.\n- Power capability at 80% and 20% state of charge.\n\nDIN DKE Spec 99100 chapter reference: 6.7.3.3",
+        "dinChapter": "6.7.3.3",
+        "kind": "property"
+      },
+      "powerFade": {
+        "description": "�Power fade (in %) means the decrease over time and upon usage in the amount of power that a battery can deliver at the rated voltage.� (see BattReg Annex IV (4)).\n\nPower fade should be calculated using original and remaining power capability following the formula below:\nPfade(x) = (1-P(x)) / PBOL\" �100\" %\" \nwhere\nx \tis the aging parameter (e.g. storage time, number of cycles, etc.);\nP(x) \tis the power capability at aging parameter x;\nPBOL \tis the power capability at begin of life.\n\nDIN DKE Spec 99100 chapter reference: 6.7.3.4",
+        "dinChapter": "6.7.3.4",
+        "kind": "property"
+      },
+      "roundTripEfficiencyFade": {
+        "description": "Energy round trip efficiency fade should be calculated using the initial round trip energy efficiency and remaining round trip energy efficiency following the formula below:\n\nRTEfade (x) = (1-RTE(x)) / RTEBOL  �100\" %\" \nwhere\nx \tis the aging parameter (e.g. storage time, number of cycles, etc.);\nRTE(x) \tis the round trip energy efficiency at aging parameter x;\nRTEBOL \tis the round trip energy efficiency at begin of life.\n\nDIN DKE Spec 99100 chapter reference: 6.7.4.5",
+        "dinChapter": "6.7.4.5",
+        "kind": "property"
+      },
+      "evolutionOfSelfDischarge": {
+        "description": "�Evolution of self-discharge rates� is the change of self-discharge over time and usage, as percentage calculated from the initial and current self-discharge rate.\n\nDIN DKE Spec 99100 chapter reference: 6.7.4.8",
+        "dinChapter": "6.7.4.8",
+        "kind": "property"
+      },
+      "currentSelfDischargingRate": {
+        "description": "The current self-discharge rate is the change of the self-discharge rate in an idle state of the battery in reference conditions (temperature etc.) at aging parameter x, e.g. after a certain amount of storage time or, number of cycles.\n\nDIN DKE Spec 99100 chapter reference: 6.7.4.7",
+        "dinChapter": "6.7.4.7",
+        "kind": "property"
+      },
+      "internalResistanceIncrease": {
+        "description": "The internal resistance increase over time and upon usage should be defined based on the ratio of current and initial values as follows:\nRincrease(x) = (R(x)  - RBOL) / RBOL � 100 %\nwhere\nx \tis the aging parameter (e.g. storage time, number of cycles, etc.;);\nR(x)\tis the internal resistance at the aging parameter x; and\nRBOL\tis the internal resistance at begin of life.\n\nThe battery passport can include additional information about the internal resistance increase on battery cell and battery module level, if available. It should be defined and calculated analogously to the requirements on battery pack level above.\n\nDIN DKE Spec 99100 chapter reference: 6.7.5.3",
+        "dinChapter": "6.7.5.3",
+        "kind": "property"
+      },
+      "roundTripEfficiencyat50PerCentCycleLife": {
+        "description": "Initial round trip energy efficiency shall be measured at reference conditions that include the specification of �50 % of cycle-life�.\n\nTest methods and reference conditions should separately consider non-cycle applications and batteries with very long cycle-life.\n\nDIN DKE Spec 99100 chapter reference: 6.7.4.3",
+        "dinChapter": "6.7.4.3",
+        "kind": "property"
+      },
+      "remainingRoundTripEnergyEfficiency": {
+        "description": "The battery passport shall include information, where possible, about the remaining round trip energy efficiency as information on the state of health of the battery \n\nThe update frequency of remaining round trip energy efficiency should be aligned with the update frequency of round trip energy efficiency fade and should be provided upon change of the battery status.\n\nDIN DKE Spec 99100 chapter reference: 6.7.4.4",
+        "dinChapter": "6.7.4.4",
+        "kind": "property"
+      },
+      "stateOfCharge": {
+        "preferredName": "SoC",
+        "description": "The Battery Pass consortium proposes to change the definition to: \"available capacity in a battery expressed as a percentage of remaining capacity\" to reflect use of SoC in practice.  \n\nDIN DKE Spec 99100 chapter reference: 6.7.2.8",
+        "dinChapter": "6.7.2.8",
+        "kind": "property"
+      },
+      "PowerCapabilityRatio": {
+        "description": "Ratio between nominal allowed battery power (W) and battery energy (Wh).",
+        "kind": "other"
+      },
+      "NominalVoltage": {
+        "description": "s",
+        "kind": "other"
+      },
+      "CapacityThroughput": {
+        "description": "Capacity throughput.",
+        "kind": "other"
+      },
+      "NumberOfFullCycles": {
+        "description": "- Information and data as a result of its use, including the number of charging and discharging cycles.",
+        "kind": "other"
+      },
+      "RoundTripEfficienyFade": {
+        "description": "Art. 10: Annex IV Part A (4) (only definition); Article 14: Annex VII Part A (3)",
+        "kind": "other"
+      },
+      "InternalResistanceEntity": {
+        "description": "The internal resistance is �a quotient of change of voltage of a battery by the corresponding change in discharge current under specified conditions� (IEV 482 03 36).",
+        "kind": "other"
+      },
+      "ohmicResistance": {
+        "description": "Initial (Pre-Use) internal resistance on battery pack level. \n\nDefinition of internal resistance should differ from regulation definition, as \"opposition\" is not an electrotechnical term and may be based on IEV 131-12-04: \"internal resistance means the absolute value of the quotient of the voltage drop between the terminals by the electric current increase in the battery circuit during a current pulse\"",
+        "kind": "property"
+      },
+      "lastUpdate": {
+        "description": "Timestamp for dynamic data attributes show the last update time.",
+        "kind": "property"
+      },
+      "negativeEvent": {
+        "preferredName": "Negative events, such as accidents. No further definition provided by regulation.",
+        "kind": "property"
+      },
+      "timeExtremeHighTemp": {
+        "description": "Cumulated time spent above the given upper boundary of temperature.",
+        "kind": "property"
+      },
+      "timeExtremeLowTemp": {
+        "description": "Cumulated time spent below the given lower boundary of temperature.",
+        "kind": "property"
+      },
+      "timeExtremeHighTempCharging": {
+        "description": "Cumulated time spent above the given upper boundary of temperature during Charging.",
+        "kind": "property"
+      },
+      "timeExtremeLowTempCharging": {
+        "description": "Cumulated time spent below the given lower boundary of temperature during charging.",
+        "kind": "property"
+      },
+      "RemainingPowerCapabilityValue": {
+        "preferredName": "RemainingPowerCapabilityValue",
+        "kind": "other"
+      },
+      "StateOfChargeValue": {
+        "preferredName": "Value",
+        "kind": "other"
+      }
+    },
+    "Labeling": {
+      "Labeling": {
+        "description": "Data model for battery labels and conformity",
+        "kind": "other"
+      },
+      "declarationOfConformity": {
+        "description": "A battery passport must include the EU declaration of conformity.\n\nThe regulation specifies the following requirements regarding the EU declaration of conformity (see BattReg Annex XIII (1r) and BattReg Article 18 (2)):\n\n- The EU declaration of conformity has the model structure set out in Annex IX.\n- The EU declaration of conformity must contain the elements specified in the relevant modules set out in Annex VIII.\n- The EU declaration of conformity must be kept up to date.\n- It is translated into the language or languages required by the Member State in which the battery is placed or made available on the market or put into service.\n- It must be drawn up in electronic format and, where requested, it must be provided in paper format.\n\nDIN DKE Spec chapter reference: 6.2.7",
+        "dinChapter": "6.2.7",
+        "kind": "property"
+      },
+      "resultOfTestReport": {
+        "description": "URL to a document that includes results of tests reports proving compliance in the market conformity assessment procedure with the requirements as per the technical documentation (Art. 7-10, Art. 12-14 and due diligence policies ).\n\nDIN DKE Spec chapter reference 6.2.8",
+        "dinChapter": "6.2.8",
+        "kind": "property"
+      },
+      "labels": {
+        "description": "'Separate collection' or 'WEEE label' indicating that a product should not be discarded as unsorted waste but must be sent to separate collection facilities for recovery and recycling. To be printed on the physical label and displayed via the battery passport, suggested to be translated also to text to ensure machine readability.\n\nDIN DKE Spec chapter reference: \n\n6.2.2 Separate collection\n6.2.3 Material symbol for Cadmium and Lead\n6.2.4 Carbon Footprint perfromance class\n6.2.5 Extinguishing agent",
+        "dinChapter": "6.2.2",
+        "kind": "property"
+      },
+      "Labels": {
+        "description": "List of labels",
+        "kind": "other"
+      },
+      "LabelingEntity": {
+        "description": "Entity for the definition required battery labeling",
+        "kind": "other"
+      },
+      "labelingMeaning": {
+        "description": "Explanation of the meaning of all symbols and labels (including separate collection; cadmium and lead; and carbon footprint and carbon footprint performance class symbols; and symbols and labels printed on batteries or their accompanying documents but not accessible via the battery passport).",
+        "kind": "property"
+      },
+      "labelingSubject": {
+        "description": "Short name of required labeling subjects",
+        "kind": "property"
+      }
     }
   }
 }

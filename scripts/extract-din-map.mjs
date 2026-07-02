@@ -23,6 +23,10 @@ const MODULES = [
   'GeneralProductInformation',
   'MaterialComposition',
   'SupplyChainDueDiligence',
+  'CarbonFootprintForBatteries',
+  'Circularity',
+  'PerformanceAndDurability',
+  'Labeling',
 ];
 
 const DIN_CHAPTER_RE = /DIN DKE Spec(?:\s+99100)?\s+chapter reference:?\s*([0-9][0-9.]*[0-9]|[0-9])/i;

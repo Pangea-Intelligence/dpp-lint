@@ -1,0 +1,12 @@
+{
+  "carbonFootprintPerLifecycleStage": [
+    {
+      "lifecycleStage": "RawMaterialExtraction",
+      "carbonFootprint": -1.7976931348623157e+308
+    }
+  ],
+  "carbonFootprintStudy": "telnet://192.0.2.16:80/",
+  "absoluteCarbonFootprint": -1.7976931348623157e+308,
+  "batteryCarbonFootprint": -1.7976931348623157e+308,
+  "carbonFootprintPerformanceClass": "eOMtThyhVNLWUZNRcBaQKxI"
+}

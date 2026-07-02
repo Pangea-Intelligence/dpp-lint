@@ -97,6 +97,34 @@ CC-BY-4.0 (October 2025; the TTL file headers and SPDX identifiers say
 CC-BY-4.0). The generator strips that paragraph so the outdated license
 text does not end up in the shipped artifact. See NOTICE for details.
 
+## 6. Vendoring of the four remaining modules (v0.2)
+
+- **Files:** `schemas/battery/1.2.0/{CarbonFootprintForBatteries,Circularity,PerformanceAndDurability,Labeling}.schema.json`,
+  `ttl/{same}.ttl`, `fixtures/battery/{same}.payload.json`
+- **Date:** 2026-07-02
+- **Source:** upstream commit `8722af2d15c981c63552e50b9cd71a39b213b9fc`
+  (the repository has no release tags; the `1.2.0` directories were last
+  touched well before this commit), fetched via `scripts/vendor-schemas.mjs`.
+
+Notes:
+
+- Module names follow the official 1.2.0 aspect names, which differ from
+  the upstream directory names for three of the four: directory
+  `io.BatteryPass.CarbonFootprint` ships aspect `CarbonFootprintForBatteries`,
+  `io.BatteryPass.Performance` ships `PerformanceAndDurability`,
+  `io.BatteryPass.Labels` ships `Labeling`.
+- Schemas are vendored byte-for-byte (all four ship as UTF-16 LE with CRLF,
+  see quirks below).
+- Example payloads were re-encoded to UTF-8 and pretty-printed exactly as in
+  section 4. Unlike the first three modules, **no value fixes were needed**:
+  all four upstream examples validate cleanly against their own schemas.
+- Circularity has no `gen/Circularity-payload.json`; its example ships as
+  `gen/Circularity.json` instead. The vendor script falls back accordingly.
+- Circularity's `EmailAddressTrait` already carries the repaired e-mail
+  pattern upstream (issue #25 was fixed for this module only, see section 1);
+  it is vendored unchanged, so its pattern intentionally differs from our
+  patched GeneralProductInformation pattern.
+
 ## Known upstream quirks (documented, intentionally NOT changed)
 
 These are canonical field names in DIN DKE SPEC 99100 / the
@@ -107,12 +135,14 @@ so dpp-lint keeps them exactly as published:
 - `warrentyPeriod` (GeneralProductInformation) - should be "warrantyPeriod"
 - `thirdPartyAussurances` (SupplyChainDueDiligence) - should be "thirdPartyAssurances"
 - `supplyChainIndicies` (SupplyChainDueDiligence) - should be "supplyChainIndices"
+- `batteryTechicalProperties` (PerformanceAndDurability, top-level) - should be "batteryTechnicalProperties"
 
 Further quirks:
 
-- `MaterialComposition.schema.json` and `SupplyChainDueDiligence.schema.json`
-  are shipped by upstream as UTF-16 LE with CRLF line endings (the samm-cli
-  exporter emits UTF-16). They are vendored byte-for-byte; dpp-lint's schema
-  loader detects and decodes UTF-8 and UTF-16 transparently.
+- `MaterialComposition.schema.json`, `SupplyChainDueDiligence.schema.json`
+  and all four v0.2 module schemas are shipped by upstream as UTF-16 LE with
+  CRLF line endings (the samm-cli exporter emits UTF-16). They are vendored
+  byte-for-byte; dpp-lint's schema loader detects and decodes UTF-8 and
+  UTF-16 transparently.
 - The schemas declare `"$schema": "http://json-schema.org/draft-04/schema"`
   (draft-04), which is why validation runs through `ajv-draft-04`.

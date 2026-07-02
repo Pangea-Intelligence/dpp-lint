@@ -6,11 +6,18 @@ import { decodeJsonBuffer, parseJsonText } from './read.js';
 export const PROFILE = 'battery';
 export const SCHEMA_VERSION = '1.2.0';
 
-/** The three DIN DKE SPEC 99100 / BatteryPassDataModel modules we vendor. */
+/**
+ * The seven DIN DKE SPEC 99100 / BatteryPassDataModel modules we vendor.
+ * Names are the official 1.2.0 aspect names (= schema/fixture filenames).
+ */
 export const MODULES = [
   'GeneralProductInformation',
   'MaterialComposition',
   'SupplyChainDueDiligence',
+  'CarbonFootprintForBatteries',
+  'Circularity',
+  'PerformanceAndDurability',
+  'Labeling',
 ] as const;
 
 export type ModuleName = (typeof MODULES)[number];

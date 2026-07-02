@@ -36,11 +36,15 @@ Exit codes: `0` = clean, `1` = findings, `2` = usage or internal error. For `ris
 
 Validates one or more battery passport payload files (JSON, UTF-8 or UTF-16) against the official JSON Schemas of the Battery Pass data model (the technical basis of DIN DKE SPEC 99100). The module is auto-detected per file; use `--module` to force one.
 
-Modules covered in v0.1:
+Modules covered - the complete set of the Battery Pass data model (names are the official 1.2.0 aspect names):
 
 - `GeneralProductInformation` - product and manufacturer identification, battery category, weight, status
 - `MaterialComposition` - battery chemistry, critical raw materials, hazardous substances
 - `SupplyChainDueDiligence` - due-diligence report references and third-party assurance
+- `CarbonFootprintForBatteries` - lifecycle carbon footprint, per-lifecycle-stage shares, performance class, link to the public carbon footprint study
+- `Circularity` - dismantling and removal information, spare part sources, recycled and renewable content, safety measures, end-of-life information
+- `PerformanceAndDurability` - technical properties (capacity, power, resistance, cycle life) and battery condition
+- `Labeling` - declaration of conformity, test reports, labels and markings
 
 The schemas are the official JSON Schema draft-04 artifacts vendored from [batterypass/BatteryPassDataModel](https://github.com/batterypass/BatteryPassDataModel) (CC-BY-4.0). Any fixes applied to the vendored copies are documented in `schemas/PATCHES.md`.
 
@@ -125,7 +129,6 @@ cobalt,CD,0.6,Example Refining Co.,CID000123,FI
 
 ## Roadmap
 
-- Remaining data model modules: `CarbonFootprint`, `Circularity`, `Performance`, `Labels`
 - Deeper risk data: IPIS mine-level data, USGS production concentration
 - Catena-X and UNTP passport profiles
 - Further ESPR product groups beyond batteries

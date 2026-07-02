@@ -39,7 +39,7 @@ describe('public API entry point', () => {
     expect(typeof api.parseOriginsFile).toBe('function');
     expect(typeof api.loadCahra).toBe('function');
     expect(typeof api.matchMaterial).toBe('function');
-    expect(api.MODULES).toHaveLength(3);
+    expect(api.MODULES).toHaveLength(7);
     expect(api.PROFILE).toBe('battery');
   });
 });

@@ -1,0 +1,107 @@
+{
+  "batteryTechicalProperties": {
+    "originalPowerCapability": [
+      {
+        "atSoC": 2.3393242e+38,
+        "powerCapabilityAt": -1.2896817e+38
+      }
+    ],
+    "ratedEnergy": -1.2185897e+38,
+    "maximumVoltage": -2.4890157e+38,
+    "expectedLifetime": -3072,
+    "ratedMaximumPower": -1.7976931348623157e+308,
+    "capacityThresholdForExhaustion": -1.7976931348623157e+308,
+    "lifetimeReferenceTest": "telnet://192.0.2.16:80/",
+    "temperatureRangeIdleState": -19.539389775261977,
+    "ratedCapacity": 2.994716e+38,
+    "nominalVoltage": -3.1849857e+38,
+    "minimumVoltage": 1.687085e+38,
+    "initialSelfDischarge": -1.7976931348623157e+308,
+    "roundtripEfficiency": 2.1913484e+38,
+    "initialInternalResistance": [
+      {
+        "ohmicResistance": -1.7976931348623157e+308,
+        "batteryComponent": "pack"
+      }
+    ],
+    "cRate": 9.081415e+37,
+    "cRateLifeCycleTest": -3.265165e+38,
+    "powerCapabilityRatio": -1.8147613e+38,
+    "expectedNumberOfCycles": -4979411194606957000
+  },
+  "batteryCondition": {
+    "numberOfFullCycles": {
+      "numberOfFullCyclesValue": -1.7976931348623157e+308,
+      "lastUpdate": "2025-01-31T14:06:29.437+01:00"
+    },
+    "roundTripEfficiencyat50PerCentCycleLife": 9.766551e+37,
+    "stateOfCharge": {
+      "stateOfChargeValue": 6.009356e+36,
+      "lastUpdate": "2025-01-31T14:06:29.437+01:00"
+    },
+    "currentSelfDischargingRate": {
+      "currentSelfDischargingRateEntity": 1.2559217e+38,
+      "lastUpdate": "2025-01-31T14:06:29.437+01:00"
+    },
+    "remainingEnergy": {
+      "remainingEnergyalue": -7.096584e+37,
+      "lastUpdate": "2025-01-31T14:06:29.437+01:00"
+    },
+    "evolutionOfSelfDischarge": {
+      "evolutionOfSelfDischargeEntityValue": -2.209267e+37
+    },
+    "negativeEvents": [
+      {
+        "negativeEvent": "eOMtThyhVNLWUZNRcBaQKxI",
+        "lastUpdate": "2025-01-31T14:06:29.437+01:00"
+      }
+    ],
+    "temperatureInformation": {
+      "timeExtremeHighTemp": -1.7976931348623157e+308,
+      "timeExtremeLowTempCharging": -1.7976931348623157e+308,
+      "timeExtremeHighTempCharging": -1.7976931348623157e+308,
+      "timeExtremeLowTemp": -1.7976931348623157e+308,
+      "lastUpdate": "2025-01-31T14:06:29.437+01:00"
+    },
+    "stateOfCertifiedEnergy": {
+      "stateOfCertifiedEnergyValue": -2.309167e+38,
+      "lastUpdate": "2025-01-31T14:06:29.437+01:00"
+    },
+    "energyThroughput": -1.7976931348623157e+308,
+    "internalResistanceIncrease": [
+      {
+        "internalResistanceIncreaseValue": -1.985763e+38,
+        "batteryComponent": "pack",
+        "lastUpdate": "2025-01-31T14:06:29.437+01:00"
+      }
+    ],
+    "remainingPowerCapability": [
+      {
+        "remainingPowerCapabilityValue": {
+          "atSoC": 3.2114295e+38,
+          "powerCapabilityAt": -1.6049327e+38,
+          "rPCLastUpdated": "2025-01-31T14:06:29.437+01:00"
+        },
+        "lastUpdate": "2025-01-31T14:06:29.437+01:00"
+      }
+    ],
+    "roundTripEfficiencyFade": 5.5394977e+37,
+    "powerFade": 2.7326235e+38,
+    "remainingRoundTripEnergyEfficiency": {
+      "remainingRoundTripEnergyEfficiencyValue": -3.0350486e+37,
+      "lastUpdate": "2025-01-31T14:06:29.437+01:00"
+    },
+    "capacityThroughput": {
+      "capacityThroughputValue": -1.0970223e+38,
+      "lastUpdate": "2025-01-31T14:06:29.437+01:00"
+    },
+    "remainingCapacity": {
+      "remainingCapacityValue": -3.7981266e+37,
+      "lastUpdate": "2025-01-31T14:06:29.437+01:00"
+    },
+    "capacityFade": {
+      "capacityFadeValue": -4.8788013e+37,
+      "lastUpdate": "2025-01-31T14:06:29.437+01:00"
+    }
+  }
+}

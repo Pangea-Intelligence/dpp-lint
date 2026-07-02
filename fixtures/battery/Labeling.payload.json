@@ -1,0 +1,13 @@
+{
+  "resultOfTestReport": "ftp://ftp.is.co.za/rfc/rfc1808.txt",
+  "declarationOfConformity": "telnet://192.0.2.16:80/",
+  "labels": [
+    {
+      "labelingSubject": "SeparateCollection",
+      "labelingSymbol": "http://www.ietf.org/rfc/rfc2396.txt",
+      "labelingMeaning": {
+        "en": "Separate Collection"
+      }
+    }
+  ]
+}

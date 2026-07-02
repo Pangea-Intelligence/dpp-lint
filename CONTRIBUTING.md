@@ -25,7 +25,7 @@ Requirements: Node >= 20. The project is ESM with NodeNext resolution, so relati
 
 The JSON Schemas under `schemas/battery/<version>/` are the official draft-04 artifacts from [batterypass/BatteryPassDataModel](https://github.com/batterypass/BatteryPassDataModel) (CC-BY-4.0). Do not edit them by hand ad hoc:
 
-- Vendoring and updates go through the `scripts/` helpers, so the process stays reproducible.
+- Vendoring and updates go through `scripts/vendor-schemas.mjs` (pinned upstream commit; never overwrites existing files without `--force`, because vendored fixtures carry curated fixes), so the process stays reproducible.
 - Every deliberate deviation from upstream must be documented in `schemas/PATCHES.md` (what was changed, why, upstream issue link if any).
 - Keep the upstream attribution in `NOTICE` intact.
 
