@@ -240,6 +240,30 @@ describe('R4: due diligence report link', () => {
     expect(r4[0].severity).toBe('medium');
   });
 
+  it('keeps medium when the field is present but broken, even if detection picks another module', () => {
+    // Regression (7-module expansion): a combined export whose majority of
+    // keys belongs to another module must not downgrade a genuinely broken
+    // report link to info just because detectModule picks that module.
+    const circularity = readPayload(
+      path.join(root, 'fixtures', 'battery', 'Circularity.payload.json')
+    ).data as Record<string, unknown>;
+    const combined = { ...circularity, supplyChainDueDiligenceReport: 'not a url' };
+    const r4 = byRule(screen(combined, undefined).findings, 'R4');
+    expect(r4).toHaveLength(1);
+    expect(r4[0].severity).toBe('medium');
+    expect(r4[0].message).not.toContain('cannot contain');
+  });
+
+  it('still downgrades to info when the field is absent on a v0.2 module payload', () => {
+    const labeling = readPayload(
+      path.join(root, 'fixtures', 'battery', 'Labeling.payload.json')
+    ).data;
+    const r4 = byRule(screen(labeling, undefined).findings, 'R4');
+    expect(r4).toHaveLength(1);
+    expect(r4[0].severity).toBe('info');
+    expect(r4[0].message).toContain('Labeling');
+  });
+
   it('fires for a non-http(s) scheme (official fixture uses telnet://)', () => {
     const payload = readPayload(dueDiligenceFixture).data;
     const r4 = byRule(screen(payload, undefined).findings, 'R4');

@@ -26,28 +26,36 @@ const VERSION = '1.2.0';
 const RAW = 'https://raw.githubusercontent.com/batterypass/BatteryPassDataModel';
 
 // Module name (= official 1.2.0 aspect name = our schema/fixture filename)
-// -> upstream directory under BatteryPass/.
-const UPSTREAM_DIR = {
-  GeneralProductInformation: 'io.BatteryPass.GeneralProductInformation',
-  MaterialComposition: 'io.BatteryPass.MaterialComposition',
-  SupplyChainDueDiligence: 'io.BatteryPass.SupplyChainDueDiligence',
-  CarbonFootprintForBatteries: 'io.BatteryPass.CarbonFootprint',
-  Circularity: 'io.BatteryPass.Circularity',
-  PerformanceAndDurability: 'io.BatteryPass.Performance',
-  Labeling: 'io.BatteryPass.Labels',
+// -> upstream location under BatteryPass/. payloadFile overrides the default
+// gen/<Aspect>-payload.json for the one module whose example is named
+// differently upstream (a static fact, not probed at runtime).
+const UPSTREAM = {
+  GeneralProductInformation: { dir: 'io.BatteryPass.GeneralProductInformation' },
+  MaterialComposition: { dir: 'io.BatteryPass.MaterialComposition' },
+  SupplyChainDueDiligence: { dir: 'io.BatteryPass.SupplyChainDueDiligence' },
+  CarbonFootprintForBatteries: { dir: 'io.BatteryPass.CarbonFootprint' },
+  Circularity: { dir: 'io.BatteryPass.Circularity', payloadFile: 'Circularity.json' },
+  PerformanceAndDurability: { dir: 'io.BatteryPass.Performance' },
+  Labeling: { dir: 'io.BatteryPass.Labels' },
 };
 
 function parseArgs(argv) {
   const args = { ref: DEFAULT_REF, force: false, modules: [] };
   for (let i = 0; i < argv.length; i++) {
-    if (argv[i] === '--ref') args.ref = argv[++i];
-    else if (argv[i] === '--force') args.force = true;
+    if (argv[i] === '--ref') {
+      const value = argv[++i];
+      if (!value || value.startsWith('--')) {
+        console.error('--ref requires a commit sha or branch name');
+        process.exit(2);
+      }
+      args.ref = value;
+    } else if (argv[i] === '--force') args.force = true;
     else args.modules.push(argv[i]);
   }
-  if (args.modules.length === 0) args.modules = Object.keys(UPSTREAM_DIR);
+  if (args.modules.length === 0) args.modules = Object.keys(UPSTREAM);
   for (const m of args.modules) {
-    if (!UPSTREAM_DIR[m]) {
-      console.error(`unknown module "${m}". Known: ${Object.keys(UPSTREAM_DIR).join(', ')}`);
+    if (!UPSTREAM[m]) {
+      console.error(`unknown module "${m}". Known: ${Object.keys(UPSTREAM).join(', ')}`);
       process.exit(2);
     }
   }
@@ -60,20 +68,42 @@ async function fetchBytes(url) {
   return Buffer.from(await res.arrayBuffer());
 }
 
-/** BOM-based decode; upstream emits UTF-8 and UTF-16 LE/BE, always with BOM for non-UTF-8. */
+/**
+ * BOM-based decode; upstream emits UTF-8 and UTF-16 LE/BE, always with BOM
+ * for non-UTF-8. Decoding is strict: truncated UTF-16 (odd byte count) and
+ * invalid UTF-8 raise instead of silently committing mangled fixtures.
+ * (A deliberately dependency-free sibling of src/core/read.ts decodeJsonBuffer,
+ * so the vendor script runs without a prior build.)
+ */
 function decodeUpstreamJson(buf, label) {
   if (buf.length >= 2 && buf[0] === 0xff && buf[1] === 0xfe) {
-    return buf.subarray(2).toString('utf16le');
+    return decodeUtf16(buf.subarray(2), false, label);
   }
   if (buf.length >= 2 && buf[0] === 0xfe && buf[1] === 0xff) {
-    return Buffer.from(buf.subarray(2)).swap16().toString('utf16le');
+    return decodeUtf16(buf.subarray(2), true, label);
   }
-  if (buf.length >= 3 && buf[0] === 0xef && buf[1] === 0xbb && buf[2] === 0xbf) {
-    return buf.subarray(3).toString('utf8');
+  const bomless =
+    buf.length >= 3 && buf[0] === 0xef && buf[1] === 0xbb && buf[2] === 0xbf
+      ? buf.subarray(3)
+      : buf;
+  let text;
+  try {
+    text = new TextDecoder('utf-8', { fatal: true }).decode(bomless);
+  } catch {
+    throw new Error(`${label}: content is not valid UTF-8`);
   }
-  const text = buf.toString('utf8');
-  if (text.includes('\u0000')) throw new Error(`cannot detect encoding of ${label}`);
+  if (text.includes('\u0000')) {
+    throw new Error(`cannot detect encoding of ${label} (looks like BOM-less UTF-16)`);
+  }
   return text;
+}
+
+function decodeUtf16(body, bigEndian, label) {
+  if (body.length % 2 !== 0) {
+    throw new Error(`${label}: truncated UTF-16 content (odd number of bytes)`);
+  }
+  const buf = bigEndian ? Buffer.from(body).swap16() : body;
+  return buf.toString('utf16le');
 }
 
 function writeIfAllowed(file, content, force, written, skipped) {
@@ -90,7 +120,7 @@ const written = [];
 const skipped = [];
 
 for (const module of modules) {
-  const dir = UPSTREAM_DIR[module];
+  const { dir, payloadFile } = UPSTREAM[module];
   const base = `${RAW}/${ref}/BatteryPass/${dir}/${VERSION}`;
 
   const schemaBuf = await fetchBytes(`${base}/gen/${module}-schema.json`);
@@ -102,11 +132,9 @@ for (const module of modules) {
   const ttlBuf = await fetchBytes(`${base}/${module}.ttl`);
   writeIfAllowed(path.join(root, 'ttl', `${module}.ttl`), ttlBuf, force, written, skipped);
 
-  // Most modules ship gen/<Aspect>-payload.json; Circularity ships gen/Circularity.json.
-  const payloadBuf = await fetchBytes(`${base}/gen/${module}-payload.json`).catch(() =>
-    fetchBytes(`${base}/gen/${module}.json`)
-  );
-  const payload = JSON.parse(decodeUpstreamJson(payloadBuf, `${module}-payload.json`));
+  const payloadName = payloadFile ?? `${module}-payload.json`;
+  const payloadBuf = await fetchBytes(`${base}/gen/${payloadName}`);
+  const payload = JSON.parse(decodeUpstreamJson(payloadBuf, payloadName));
   writeIfAllowed(
     path.join(root, 'fixtures', 'battery', `${module}.payload.json`),
     JSON.stringify(payload, null, 2) + '\n', force, written, skipped

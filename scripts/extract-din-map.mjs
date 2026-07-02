@@ -13,33 +13,39 @@
 // Output: schemas/battery/1.2.0/din-map.json (checked-in generated artifact).
 // Plain Node, no dependencies. Run: node scripts/extract-din-map.mjs
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-const MODULES = [
-  'GeneralProductInformation',
-  'MaterialComposition',
-  'SupplyChainDueDiligence',
-  'CarbonFootprintForBatteries',
-  'Circularity',
-  'PerformanceAndDurability',
-  'Labeling',
-];
+// The module list is derived from the vendored TTL sources, so a module
+// vendored via scripts/vendor-schemas.mjs can never be silently missing here.
+// (src/core/schemas.ts keeps its own literal MODULES tuple for typing;
+// tests/index.test.ts asserts the two stay in sync via the schema files.)
+const MODULES = readdirSync(path.join(root, 'ttl'))
+  .filter((f) => f.endsWith('.ttl'))
+  .map((f) => f.slice(0, -'.ttl'.length))
+  .sort();
 
-const DIN_CHAPTER_RE = /DIN DKE Spec(?:\s+99100)?\s+chapter reference:?\s*([0-9][0-9.]*[0-9]|[0-9])/i;
+// Captures single chapters ("6.1.2.2") and ranges ("6.7.7.5 - 8").
+const DIN_CHAPTER_RE =
+  /DIN DKE Spec(?:\s+99100)?\s+chapter reference:?\s*([0-9][0-9.]*[0-9](?:\s*-\s*[0-9][0-9.]*)?|[0-9])/i;
 
 /**
- * Strips the stale boilerplate paragraph ("Copyright ... Circulor ... CC BY-NC 4.0")
- * that upstream left inside some Aspect-level samm:description literals. The
- * authoritative license of the data model is CC-BY-4.0 (file headers, SPDX ids,
- * upstream README since the 2025-10 license standardization); the embedded text
- * predates that and must not end up in our shipped din-map.json.
+ * Strips the stale boilerplate paragraph that upstream left inside some
+ * Aspect-level samm:description literals. It comes in two variants:
+ * "Copyright 2024 Circulor ... CC BY-NC 4.0" (most modules) and, without the
+ * word Copyright, "2024 Circulor (for and on behalf of the Battery Pass
+ * Consortium). This work is licensed under ... CC BY-NC 4.0" (Circularity).
+ * The authoritative license of the data model is CC-BY-4.0 (file headers,
+ * SPDX ids, upstream README since the 2025-10 license standardization); the
+ * embedded text predates that and must not end up in our shipped din-map.json.
  */
 function stripLicenseBoilerplate(s) {
-  return s.replace(/\s*Copyright\s[\s\S]*$/u, '').trimEnd();
+  return s
+    .replace(/\s*(?:Copyright\s|\d{4}\s+Circulor\b|This work is licensed\b)[\s\S]*$/u, '')
+    .trimEnd();
 }
 
 /** Unescapes a Turtle single-line string literal body. */
@@ -118,7 +124,7 @@ for (const module of MODULES) {
     if (description) {
       const chapter = description.match(DIN_CHAPTER_RE);
       if (chapter) {
-        entry.dinChapter = chapter[1].replace(/\.$/, '');
+        entry.dinChapter = chapter[1].replace(/\.$/, '').replace(/\s*-\s*/, '-');
         if (isProperty) withChapter += 1;
       }
     }

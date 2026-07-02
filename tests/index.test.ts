@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as api from '../src/index.js';
@@ -39,7 +39,14 @@ describe('public API entry point', () => {
     expect(typeof api.parseOriginsFile).toBe('function');
     expect(typeof api.loadCahra).toBe('function');
     expect(typeof api.matchMaterial).toBe('function');
-    expect(api.MODULES).toHaveLength(7);
+    // Structural invariant instead of a magic count: MODULES must exactly
+    // match the vendored schema files. Catches both drift directions (module
+    // listed without schema, schema vendored without being listed).
+    const vendored = readdirSync(path.join(root, 'schemas', 'battery', '1.2.0'))
+      .filter((f) => f.endsWith('.schema.json'))
+      .map((f) => f.replace(/\.schema\.json$/, ''))
+      .sort();
+    expect([...api.MODULES].sort()).toEqual(vendored);
     expect(api.PROFILE).toBe('battery');
   });
 });

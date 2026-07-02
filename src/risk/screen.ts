@@ -325,14 +325,23 @@ function screenR4(payload: unknown): RiskFinding[] {
   if (problem === null) return [];
 
   // A module-scoped payload (e.g. MaterialComposition) can never contain the
-  // report link by schema; flagging it medium would make `risk` unresolvable
-  // for two of the three official module fixtures. Only the module that owns
-  // the field keeps the medium severity; other detected modules get an info
-  // reminder instead. Undetectable payloads (combined passports, unknown
-  // shapes) keep medium to stay on the safe side.
+  // report link by schema; flagging its absence medium would make `risk`
+  // unresolvable for six of the seven official module fixtures. The downgrade
+  // to info therefore applies only when the field is genuinely absent AND the
+  // payload detects as a module that does not own it. If the field is present
+  // at all (even null, mistyped or an invalid URL), the payload carries
+  // due-diligence content no matter which module detection picks (combined
+  // exports mix module keys), so the finding keeps medium severity.
+  // Undetectable or ambiguous payloads also keep medium to stay safe.
+  const fieldAbsent =
+    typeof payload !== 'object' ||
+    payload === null ||
+    !Object.prototype.hasOwnProperty.call(payload, 'supplyChainDueDiligenceReport');
   const detection = detectModule(payload);
   const foreignModule =
-    detection.kind === 'detected' && detection.module !== 'SupplyChainDueDiligence';
+    fieldAbsent &&
+    detection.kind === 'detected' &&
+    detection.module !== 'SupplyChainDueDiligence';
 
   return [
     {

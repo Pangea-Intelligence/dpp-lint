@@ -91,11 +91,14 @@ and `tests/fixtures/` keeps a UTF-16LE-with-BOM copy to cover that path.
 - **Date:** 2026-07-02
 
 The Aspect-level `samm:description` literals in the upstream TTL models
-still contain a stale boilerplate paragraph ("Copyright 2024 Circulor ...
-CC BY-NC 4.0") that predates the upstream license standardization to
-CC-BY-4.0 (October 2025; the TTL file headers and SPDX identifiers say
-CC-BY-4.0). The generator strips that paragraph so the outdated license
-text does not end up in the shipped artifact. See NOTICE for details.
+still contain a stale boilerplate paragraph that predates the upstream
+license standardization to CC-BY-4.0 (October 2025; the TTL file headers
+and SPDX identifiers say CC-BY-4.0). It appears in two variants:
+"Copyright 2024 Circulor ... CC BY-NC 4.0" (most modules) and, without the
+word "Copyright", "2024 Circulor (for and on behalf of the Battery Pass
+Consortium). This work is licensed under ... CC BY-NC 4.0" (Circularity).
+The generator strips both variants so the outdated license text does not
+end up in the shipped artifact. See NOTICE for details.
 
 ## 6. Vendoring of the four remaining modules (v0.2)
 

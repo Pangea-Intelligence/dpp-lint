@@ -37,7 +37,8 @@ const schemaCache = new Map<ModuleName, JsonSchema>();
 
 /**
  * Loads a vendored draft-04 schema. Uses the same encoding detection as
- * payload reading because two of the upstream schema files ship as UTF-16.
+ * payload reading because most upstream schema files (six of the seven)
+ * ship as UTF-16 LE.
  */
 export function loadSchema(module: ModuleName): JsonSchema {
   const cached = schemaCache.get(module);

@@ -1,6 +1,6 @@
 # Project: dpp-lint
 
-Open-Source-CLI von Pangea Intelligence: Linter + Risiko-Screener für EU Digital Product Passports (v0.1: Batteriepass nach EU 2023/1542 / DIN DKE SPEC 99100).
+Open-Source-CLI von Pangea Intelligence: Linter + Risiko-Screener für EU Digital Product Passports (Batteriepass nach EU 2023/1542 / DIN DKE SPEC 99100; seit v0.2 alle 7 Module des Datenmodells).
 
 ## Owner
 - Felix Kleiner (GitHub: felixbarwuah), contact@pangea-intelligence.eu
@@ -26,7 +26,7 @@ Open-Source-CLI von Pangea Intelligence: Linter + Risiko-Screener für EU Digita
 - `schemas/battery/1.2.0/` gevendorte Schemas + generiertes din-map.json; Abweichungen von Upstream IMMER in `schemas/PATCHES.md` dokumentieren
 - `data/` Risiko-Snapshots (CAHRA, RMI, Materialien) + `data/SOURCES.md` (Provenienz-Pflicht: nie Daten erfinden, jeder Record aus echt gefetchter Quelle)
 - `ttl/` SAMM-Quellen (nur Generator-Input für din-map, nicht im npm-Package)
-- `scripts/` fetch-cahra/-rmi/-materials, extract-din-map
+- `scripts/` fetch-cahra/-rmi/-materials, extract-din-map (Modul-Liste strukturell aus ttl/), vendor-schemas (Schema/TTL/Fixture-Vendoring von gepinntem Upstream-Commit; überschreibt kuratierte Dateien nie ohne --force)
 
 ## Kritische Eigenheiten (nicht "wegfixen")
 - **RMI-Snapshot ist ABSICHTLICH leer** (RBA-Click-Wrap verbietet Redistribution, inkompatibel mit Apache-2.0). Nutzer befüllen lokal via `node scripts/fetch-rmi.mjs --accept-rmi-terms`. R2 ist bei leerem Snapshot info, bei befülltem medium.

@@ -46,6 +46,19 @@ describe('module auto-detection', () => {
     expect(detectModule([1, 2, 3]).kind).toBe('unknown');
     expect(detectModule({}).kind).toBe('unknown');
   });
+
+  it('is ambiguous for a payload mixing keys of two modules', () => {
+    const circularity = readPayload(fixture('Circularity')).data as Record<string, unknown>;
+    const labeling = readPayload(fixture('Labeling')).data as Record<string, unknown>;
+    const detection = detectModule({
+      recycledContent: circularity.recycledContent,
+      declarationOfConformity: labeling.declarationOfConformity,
+    });
+    expect(detection.kind).toBe('ambiguous');
+    if (detection.kind === 'ambiguous') {
+      expect(detection.candidates).toEqual(expect.arrayContaining(['Circularity', 'Labeling']));
+    }
+  });
 });
 
 describe('mutated payloads fail with the right pointers', () => {
@@ -144,20 +157,6 @@ describe('mutated payloads (v0.2 modules)', () => {
     ).toBe(true);
   });
 
-  it('detection is ambiguous for a payload mixing keys of two modules', () => {
-    const circularity = readPayload(fixture('Circularity')).data as Record<string, unknown>;
-    const labeling = readPayload(fixture('Labeling')).data as Record<string, unknown>;
-    const detection = detectModule({
-      recycledContent: circularity.recycledContent,
-      declarationOfConformity: labeling.declarationOfConformity,
-    });
-    expect(detection.kind).toBe('ambiguous');
-    if (detection.kind === 'ambiguous') {
-      expect(detection.candidates).toEqual(
-        expect.arrayContaining(['Circularity', 'Labeling'])
-      );
-    }
-  });
 });
 
 describe('encoding support', () => {
@@ -254,7 +253,7 @@ describe('runLint command', () => {
     };
   }
 
-  it('returns 0 for the three official fixtures', async () => {
+  it('returns 0 for all official module fixtures', async () => {
     muted();
     const code = await runLint(
       MODULES.map((m) => fixture(m)),
