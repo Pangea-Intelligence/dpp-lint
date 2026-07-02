@@ -1,6 +1,12 @@
 # dpp-lint
 
+[![npm version](https://img.shields.io/npm/v/dpp-lint)](https://www.npmjs.com/package/dpp-lint)
+[![CI](https://github.com/Pangea-Intelligence/dpp-lint/actions/workflows/ci.yml/badge.svg)](https://github.com/Pangea-Intelligence/dpp-lint/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/dpp-lint)](LICENSE)
+
 Lint EU battery passport payloads and screen raw material origins for due-diligence risk - locally, in seconds, from your terminal.
+
+![dpp-lint linting battery passport payloads and screening raw material origins in a terminal](docs/demo.gif)
 
 From 2027-02-18 the EU Battery Regulation (EU 2023/1542) makes a digital battery passport mandatory for LMT, industrial (> 2 kWh) and EV batteries placed on the EU market, and from 2027-08-18 the raw material due-diligence duties of Art. 48-52 apply. The open tooling that exists today is either a heavyweight dataspace stack or a bare schema repository with no developer workflow. dpp-lint is the missing lightweight tool: a single CLI that validates passport payloads against the official DIN DKE SPEC 99100 / Battery Pass data model and screens declared material origins against open risk data. Everything runs locally - your passport data never leaves your machine.
 
