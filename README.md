@@ -28,7 +28,7 @@ payload.json  [MaterialComposition]
 1 file checked · 2 errors
 ```
 
-Exit codes: `0` = clean, `1` = findings, `2` = usage or internal error. For `risk`, info-level notes alone do not flip the exit code; only high or medium findings return `1`. This makes dpp-lint straightforward to wire into CI pipelines and pre-commit hooks.
+Exit codes: `0` = clean, `1` = findings, `2` = usage or internal error. For `risk`, info-level notes alone do not flip the exit code; only high or medium findings return `1`. An ambiguous module auto-detection counts as a usage error (`2`), because the fix is to pass `--module`. This makes dpp-lint straightforward to wire into CI pipelines and pre-commit hooks.
 
 ## Commands
 

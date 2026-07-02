@@ -94,6 +94,72 @@ describe('mutated payloads fail with the right pointers', () => {
   });
 });
 
+describe('mutated payloads (v0.2 modules)', () => {
+  it('CarbonFootprintForBatteries: missing required field carries its DIN chapter', () => {
+    const base = readPayload(fixture('CarbonFootprintForBatteries')).data as Record<
+      string,
+      unknown
+    >;
+    const mutated = clone(base);
+    delete mutated.batteryCarbonFootprint;
+    const { valid, findings } = lintErrors('CarbonFootprintForBatteries', mutated);
+    expect(valid).toBe(false);
+    const finding = findings.find((f) => f.pointer === '/batteryCarbonFootprint');
+    expect(finding).toBeDefined();
+    expect(finding!.keyword).toBe('required');
+    expect(finding!.dinChapter).toBe('6.3.2');
+  });
+
+  it('PerformanceAndDurability: wrong type in a nested property', () => {
+    const base = readPayload(fixture('PerformanceAndDurability')).data as {
+      batteryTechicalProperties: Record<string, unknown>;
+    };
+    const mutated = clone(base);
+    mutated.batteryTechicalProperties.ratedCapacity = 'not-a-number';
+    const { valid, findings } = lintErrors('PerformanceAndDurability', mutated);
+    expect(valid).toBe(false);
+    const finding = findings.find(
+      (f) => f.pointer === '/batteryTechicalProperties/ratedCapacity' && f.keyword === 'type'
+    );
+    expect(finding).toBeDefined();
+    expect(finding!.message).toContain('expected type number, got string');
+  });
+
+  it('Circularity: upstream-repaired e-mail pattern rejects invalid addresses', () => {
+    // Guards the upstream fix for issue #25 (Circularity was the only module
+    // fixed upstream); a future re-vendoring that regresses to the broken
+    // backslash-less pattern would accept this string.
+    const base = readPayload(fixture('Circularity')).data as {
+      sparePartSources: Array<{ emailAddressOfSupplier: string }>;
+    };
+    const mutated = clone(base);
+    mutated.sparePartSources[0].emailAddressOfSupplier = 'not-an-email';
+    const { valid, findings } = lintErrors('Circularity', mutated);
+    expect(valid).toBe(false);
+    expect(
+      findings.some(
+        (f) =>
+          f.pointer === '/sparePartSources/0/emailAddressOfSupplier' && f.keyword === 'pattern'
+      )
+    ).toBe(true);
+  });
+
+  it('detection is ambiguous for a payload mixing keys of two modules', () => {
+    const circularity = readPayload(fixture('Circularity')).data as Record<string, unknown>;
+    const labeling = readPayload(fixture('Labeling')).data as Record<string, unknown>;
+    const detection = detectModule({
+      recycledContent: circularity.recycledContent,
+      declarationOfConformity: labeling.declarationOfConformity,
+    });
+    expect(detection.kind).toBe('ambiguous');
+    if (detection.kind === 'ambiguous') {
+      expect(detection.candidates).toEqual(
+        expect.arrayContaining(['Circularity', 'Labeling'])
+      );
+    }
+  });
+});
+
 describe('encoding support', () => {
   it('parses a UTF-16LE file with BOM', () => {
     const utf16 = readPayload(
