@@ -37,6 +37,7 @@
     "dist",
     "schemas",
     "data",
+    "fixtures",
     "NOTICE"
   ],
   "scripts": {

@@ -1,16 +1,18 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import pc from 'picocolors';
 import { fromRoot } from '../core/paths.js';
 import { readPayload, ReadError } from '../core/read.js';
 import { detectModule, isModuleName, MODULES, PROFILE, type ModuleName } from '../core/schemas.js';
 import { validatePayload } from '../core/validate.js';
 import { toFindings, type Finding } from '../core/messages.js';
+import { renderLintReport } from '../core/report.js';
 
 export interface LintOptions {
   module?: string;
   profile: string;
   json: boolean;
   quiet: boolean;
+  report?: string;
 }
 
 export interface FileResult {
@@ -161,6 +163,15 @@ export async function runLint(files: string[], opts: LintOptions): Promise<numbe
     console.log('');
     const summary = `${results.length} file${results.length === 1 ? '' : 's'} checked, ${passed} passed, ${failed} failed`;
     console.log(failed > 0 ? pc.red(summary) : pc.green(summary));
+  }
+
+  if (opts.report) {
+    writeFileSync(
+      opts.report,
+      renderLintReport(results, { version: version(), generatedAt: new Date().toISOString() }),
+      'utf8'
+    );
+    if (human && !opts.quiet) console.log(pc.dim(`report written: ${opts.report}`));
   }
 
   if (usageError) return 2;

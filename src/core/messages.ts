@@ -46,7 +46,10 @@ function loadDinMap(): DinMap {
   return dinMap;
 }
 
-function lookupDin(module: ModuleName, attribute: string | undefined): DinMapEntry | undefined {
+export function lookupDin(
+  module: ModuleName,
+  attribute: string | undefined
+): DinMapEntry | undefined {
   if (!attribute) return undefined;
   const modules = loadDinMap().modules;
   // Prefer the entry from the module being validated, fall back to any

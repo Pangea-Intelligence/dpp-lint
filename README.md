@@ -57,6 +57,7 @@ Options:
 | `-m, --module <name>` | Force a specific module instead of auto-detection |
 | `-p, --profile <name>` | Passport profile (default: `battery`) |
 | `--json` | Machine-readable JSON output |
+| `--report <file>` | Additionally write a self-contained HTML report (traffic light, findings table, DIN references) - the document to forward to a supplier or file for an audit |
 | `-q, --quiet` | Only report errors, no banner or summary |
 
 ### `dpp-lint risk <file> [--origins <file>]`
@@ -75,7 +76,37 @@ Options:
 | --- | --- |
 | `-o, --origins <file>` | Material origins file (JSON or CSV, see below) |
 | `--json` | Machine-readable JSON output |
+| `--report <file>` | Additionally write a self-contained HTML report grouped by OECD step, with severities and data provenance |
 | `-q, --quiet` | Only report findings, no banner or summary |
+
+### `dpp-lint template <module>`
+
+Writes a starter payload for a module (the official example values, curated
+to validate cleanly) and prints the required fields with their DIN DKE SPEC
+99100 chapter references - the fill-in guide when you start from scratch:
+
+```sh
+npx dpp-lint template MaterialComposition -o my-battery-materials.json
+```
+
+Options: `-o, --output <file>` (default: `<Module>.json` in the current
+directory), `-f, --force` to overwrite an existing file.
+
+## CI integration (GitHub Action)
+
+The repository doubles as a GitHub Action, so passport payloads can be
+checked on every push or pull request with three lines:
+
+```yaml
+- uses: Pangea-Intelligence/dpp-lint@v0.3.0
+  with:
+    files: passports/*.json
+```
+
+Inputs: `command` (`lint` | `risk`, default `lint`), `files` (required),
+`origins` (for `risk`), `module`, `version` (npm version to run, default
+`latest`) and `args` for anything else (e.g. `--json`). The job fails when
+dpp-lint returns findings, exactly like the CLI exit codes.
 
 ## Origins file format
 

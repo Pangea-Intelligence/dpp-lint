@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import pc from 'picocolors';
 import { fromRoot } from '../core/paths.js';
 import { readPayload, ReadError } from '../core/read.js';
@@ -11,11 +11,13 @@ import {
   type ScreenResult,
   type Severity,
 } from '../risk/screen.js';
+import { renderRiskReport } from '../core/report.js';
 
 export interface RiskOptions {
   origins?: string;
   json: boolean;
   quiet: boolean;
+  report?: string;
 }
 
 function version(): string {
@@ -153,6 +155,24 @@ export async function runRisk(file: string, opts: RiskOptions): Promise<number> 
     );
   } else {
     printHuman(file, opts, origins, result);
+  }
+
+  if (opts.report) {
+    writeFileSync(
+      opts.report,
+      renderRiskReport(
+        {
+          file,
+          originsFile: opts.origins,
+          originsCount: origins?.entries.length,
+          warnings: origins?.warnings ?? [],
+          result,
+        },
+        { version: version(), generatedAt: new Date().toISOString() }
+      ),
+      'utf8'
+    );
+    if (!opts.json && !opts.quiet) console.log(pc.dim(`report written: ${opts.report}`));
   }
 
   return result.summary.high + result.summary.medium > 0 ? 1 : 0;

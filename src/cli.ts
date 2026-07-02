@@ -4,6 +4,7 @@ import { Command } from 'commander';
 import pc from 'picocolors';
 import { runLint } from './commands/lint.js';
 import { runRisk } from './commands/risk.js';
+import { runTemplate } from './commands/template.js';
 
 const require = createRequire(import.meta.url);
 const pkg = require('../package.json') as { version: string };
@@ -27,6 +28,7 @@ program
   .option('-m, --module <name>', 'force a specific module instead of auto-detection')
   .option('-p, --profile <name>', 'passport profile', 'battery')
   .option('--json', 'machine-readable JSON output', false)
+  .option('--report <file>', 'additionally write a self-contained HTML report')
   .option('-q, --quiet', 'only report errors, no banner or summary', false)
   .action(async (files: string[], opts) => {
     process.exitCode = await runLint(files, opts);
@@ -38,9 +40,20 @@ program
   .argument('<file>', 'battery passport payload file (JSON)')
   .option('-o, --origins <file>', 'material origins file (JSON or CSV, see docs)')
   .option('--json', 'machine-readable JSON output', false)
+  .option('--report <file>', 'additionally write a self-contained HTML report')
   .option('-q, --quiet', 'only report findings, no banner or summary', false)
   .action(async (file: string, opts) => {
     process.exitCode = await runRisk(file, opts);
+  });
+
+program
+  .command('template')
+  .description('Write a starter payload for a module and list its required fields')
+  .argument('<module>', 'aspect name, e.g. GeneralProductInformation (invalid names list all)')
+  .option('-o, --output <file>', 'output file (default: <Module>.json)')
+  .option('-f, --force', 'overwrite an existing output file', false)
+  .action((moduleName: string, opts) => {
+    process.exitCode = runTemplate(moduleName, opts);
   });
 
 // Commander's default exit code for usage errors is 1, which collides with

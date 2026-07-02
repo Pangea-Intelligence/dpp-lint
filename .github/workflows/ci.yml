@@ -28,3 +28,28 @@ jobs:
 
       - name: Test
         run: npm test
+
+  action-smoke:
+    # Dogfooding: the bundled GitHub Action checks the example scenario.
+    runs-on: ubuntu-latest
+    name: GitHub Action smoke test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: lint clean example files via the action
+        uses: ./
+        with:
+          files: examples/brandt-foerdertechnik/incoming-fixed/*.json
+
+      - name: broken example files must fail
+        id: broken
+        continue-on-error: true
+        uses: ./
+        with:
+          files: examples/brandt-foerdertechnik/incoming/*.json
+
+      - name: assert failure was detected
+        if: steps.broken.outcome != 'failure'
+        run: |
+          echo "expected the action to fail on the broken example files"
+          exit 1

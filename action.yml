@@ -1,0 +1,56 @@
+name: 'dpp-lint'
+description: >-
+  Lint EU battery passport payloads against DIN DKE SPEC 99100 and screen
+  raw material origins for due-diligence risk (EU 2023/1542, Art. 48-52).
+author: 'Pangea Intelligence'
+branding:
+  icon: 'check-circle'
+  color: 'blue'
+
+inputs:
+  command:
+    description: 'dpp-lint command to run: lint or risk'
+    required: false
+    default: 'lint'
+  files:
+    description: 'Payload file(s) or glob(s) to check, space-separated'
+    required: true
+  origins:
+    description: 'Origins file for the risk command (JSON or CSV)'
+    required: false
+    default: ''
+  module:
+    description: 'Force a specific module for lint instead of auto-detection'
+    required: false
+    default: ''
+  version:
+    description: 'dpp-lint version to run (npm dist-tag or semver)'
+    required: false
+    default: 'latest'
+  args:
+    description: 'Extra arguments passed through to dpp-lint (e.g. --json, --quiet)'
+    required: false
+    default: ''
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run dpp-lint
+      shell: bash
+      run: |
+        CMD=(npx --yes "dpp-lint@${{ inputs.version }}" "${{ inputs.command }}")
+        if [ "${{ inputs.command }}" = "risk" ] && [ -n "${{ inputs.origins }}" ]; then
+          CMD+=(--origins "${{ inputs.origins }}")
+        fi
+        if [ "${{ inputs.command }}" = "lint" ] && [ -n "${{ inputs.module }}" ]; then
+          CMD+=(--module "${{ inputs.module }}")
+        fi
+        if [ -n "${{ inputs.args }}" ]; then
+          # shellcheck disable=SC2206
+          CMD+=(${{ inputs.args }})
+        fi
+        # Globs in inputs.files are expanded by bash here.
+        # shellcheck disable=SC2206
+        CMD+=(${{ inputs.files }})
+        echo "Running: ${CMD[*]}"
+        "${CMD[@]}"
