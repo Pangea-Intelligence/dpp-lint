@@ -27,7 +27,7 @@
     "node": ">=20"
   },
   "bin": {
-    "dpp-lint": "./dist/cli.js"
+    "dpp-lint": "dist/cli.js"
   },
   "main": "./dist/index.js",
   "exports": {
