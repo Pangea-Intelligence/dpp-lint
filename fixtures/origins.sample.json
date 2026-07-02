@@ -1,0 +1,28 @@
+{
+  "materials": [
+    {
+      "material": "cobalt",
+      "originCountry": "CD",
+      "share": 0.62,
+      "smelter": {
+        "name": "Kolwezi Example Refining Co. Ltd.",
+        "country": "CD"
+      }
+    },
+    {
+      "material": "lithium",
+      "originCountry": "AU",
+      "share": 1
+    },
+    {
+      "material": "nickel",
+      "originCountry": "ID",
+      "share": 0.85,
+      "smelter": {
+        "name": "Morowali Example Nickel Smelter",
+        "id": "CID999999",
+        "country": "ID"
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "name": "dpp-lint",
+  "version": "0.1.0",
+  "description": "Linter and risk screener for EU Digital Product Passports. Validates battery passport payloads against DIN DKE SPEC 99100 and screens raw material origins against open due-diligence risk data. By Pangea Intelligence.",
+  "keywords": [
+    "dpp",
+    "digital-product-passport",
+    "battery-passport",
+    "eu-battery-regulation",
+    "din-dke-spec-99100",
+    "espr",
+    "due-diligence",
+    "supply-chain",
+    "compliance",
+    "validator",
+    "linter"
+  ],
+  "license": "Apache-2.0",
+  "author": "Pangea Intelligence <contact@pangea-intelligence.eu> (https://pangea-intelligence.eu)",
+  "homepage": "https://github.com/pangea-intelligence/dpp-lint",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pangea-intelligence/dpp-lint.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "dpp-lint": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "schemas",
+    "data",
+    "NOTICE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "commander": "^13.1.0",
+    "picocolors": "^1.1.1",
+    "ajv-draft-04": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.1.0"
+  }
+}

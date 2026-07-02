@@ -1,0 +1,1645 @@
+{
+  "meta": {
+    "source": "https://cahra-api.cahraslist.net/api/v1/cahras",
+    "website": "https://www.cahraslist.net/",
+    "retrieved": "2026-07-02",
+    "version": "Report: June 2026 - For publication",
+    "dataUpdated": "2026-03-28T23:00:00Z",
+    "reportsUpdated": "2026-06-27T22:00:00Z",
+    "license": "Indicative, non-exhaustive list of CAHRAs under EU Regulation 2017/821, maintained by RAND Europe for the European Commission (DG TRADE). Public information; no explicit license published on cahraslist.net. Not an official or exhaustive EU designation.",
+    "transformation": "One entry per country. Region reports merged and deduplicated by ISO 3166-2 code. regions=null and wholeCountry=true when the source marks the designation as country-level. iso2 derived from ISO 3166-2 subdivision code prefix."
+  },
+  "entries": [
+    {
+      "countryName": "Afghanistan",
+      "iso2": "AF",
+      "iso3": "AFG",
+      "regions": [
+        {
+          "name": "Balkh",
+          "code": "AF-BAL",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Bāmyān",
+          "code": "AF-BAM",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Bādghīs",
+          "code": "AF-BDG",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Badakhshān",
+          "code": "AF-BDS",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Baghlān",
+          "code": "AF-BGL",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Dāykundī",
+          "code": "AF-DAY",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Farāh",
+          "code": "AF-FRA",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Fāryāb",
+          "code": "AF-FYB",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Ghaznī",
+          "code": "AF-GHA",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Ghōr",
+          "code": "AF-GHO",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Helmand",
+          "code": "AF-HEL",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Herāt",
+          "code": "AF-HER",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Jowzjān",
+          "code": "AF-JOW",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Kābul",
+          "code": "AF-KAB",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kandahār",
+          "code": "AF-KAN",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kāpīsā",
+          "code": "AF-KAP",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Kunduz",
+          "code": "AF-KDZ",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Khōst",
+          "code": "AF-KHO",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Kunaṟ",
+          "code": "AF-KNR",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Laghmān",
+          "code": "AF-LAG",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Lōgar",
+          "code": "AF-LOG",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Nangarhār",
+          "code": "AF-NAN",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Nīmrōz",
+          "code": "AF-NIM",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Nūristān",
+          "code": "AF-NUR",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Panjshayr",
+          "code": "AF-PAN",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Parwān",
+          "code": "AF-PAR",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Paktiyā",
+          "code": "AF-PIA",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Paktīkā",
+          "code": "AF-PKA",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Samangān",
+          "code": "AF-SAM",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Sar-e Pul",
+          "code": "AF-SAR",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Takhār",
+          "code": "AF-TAK",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Uruzgān",
+          "code": "AF-URU",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Wardak",
+          "code": "AF-WAR",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Zābul",
+          "code": "AF-ZAB",
+          "conflictAffected": false,
+          "highRisk": true
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Benin",
+      "iso2": "BJ",
+      "iso3": "BEN",
+      "regions": [
+        {
+          "name": "Alibori",
+          "code": "BJ-AL",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Burkina Faso",
+      "iso2": "BF",
+      "iso3": "BFA",
+      "regions": [
+        {
+          "name": "Boucle du Mouhoun",
+          "code": "BF-01",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Cascades",
+          "code": "BF-02",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Centre-Est",
+          "code": "BF-04",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Centre-Nord",
+          "code": "BF-05",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Est",
+          "code": "BF-08",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Nord",
+          "code": "BF-10",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Sahel",
+          "code": "BF-12",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Burundi",
+      "iso2": "BI",
+      "iso3": "BDI",
+      "regions": null,
+      "wholeCountry": true
+    },
+    {
+      "countryName": "Cameroon",
+      "iso2": "CM",
+      "iso3": "CMR",
+      "regions": [
+        {
+          "name": "Far North",
+          "code": "CM-EN",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "North-West",
+          "code": "CM-NW",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "South-West",
+          "code": "CM-SW",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Central African Republic",
+      "iso2": "CF",
+      "iso3": "CAF",
+      "regions": [
+        {
+          "name": "Ouham",
+          "code": "CF-AC",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Bamingui-Bangoran",
+          "code": "CF-BB",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Bangui",
+          "code": "CF-BGF",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Basse-Kotto",
+          "code": "CF-BK",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Haute-Kotto",
+          "code": "CF-HK",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Haut-Mbomou",
+          "code": "CF-HM",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Haute-Sangha / Mambéré-Kadéï",
+          "code": "CF-HS",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Gribingui",
+          "code": "CF-KB",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Kémo-Gribingui",
+          "code": "CF-KG",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Lobaye",
+          "code": "CF-LB",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Mbomou",
+          "code": "CF-MB",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Ombella-Mpoko",
+          "code": "CF-MP",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Nana-Mambéré",
+          "code": "CF-NM",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Ouham-Pendé",
+          "code": "CF-OP",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Sangha",
+          "code": "CF-SE",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Ouaka",
+          "code": "CF-UK",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Vakaga",
+          "code": "CF-VK",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Colombia",
+      "iso2": "CO",
+      "iso3": "COL",
+      "regions": [
+        {
+          "name": "Antioquia",
+          "code": "CO-ANT",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Arauca",
+          "code": "CO-ARA",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Bolívar",
+          "code": "CO-BOL",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Cauca",
+          "code": "CO-CAU",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "La Guajira",
+          "code": "CO-LAG",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Norte de Santander",
+          "code": "CO-NSA",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Valle del Cauca",
+          "code": "CO-VAC",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Democratic Republic of the Congo",
+      "iso2": "CD",
+      "iso3": "COD",
+      "regions": [
+        {
+          "name": "Kongo Central",
+          "code": "CD-BC",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Bas-Uélé",
+          "code": "CD-BU",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Équateur",
+          "code": "CD-EQ",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Haut-Katanga",
+          "code": "CD-HK",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Haut-Lomami",
+          "code": "CD-HL",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Haut-Uélé",
+          "code": "CD-HU",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Ituri",
+          "code": "CD-IT",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kasaï Central",
+          "code": "CD-KC",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Kasaï Oriental",
+          "code": "CD-KE",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Kwango",
+          "code": "CD-KG",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Kwilu",
+          "code": "CD-KL",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Kinshasa",
+          "code": "CD-KN",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Kasaï",
+          "code": "CD-KS",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Lomami",
+          "code": "CD-LO",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Lualaba",
+          "code": "CD-LU",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Maniema",
+          "code": "CD-MA",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Mai-Ndombe",
+          "code": "CD-MN",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Mongala",
+          "code": "CD-MO",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Nord-Kivu",
+          "code": "CD-NK",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Nord-Ubangi",
+          "code": "CD-NU",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Sankuru",
+          "code": "CD-SA",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Sud-Kivu",
+          "code": "CD-SK",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Sud-Ubangi",
+          "code": "CD-SU",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Tanganyika",
+          "code": "CD-TA",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Tshopo",
+          "code": "CD-TO",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Tshuapa",
+          "code": "CD-TU",
+          "conflictAffected": false,
+          "highRisk": true
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Eritrea",
+      "iso2": "ER",
+      "iso3": "ERI",
+      "regions": null,
+      "wholeCountry": true
+    },
+    {
+      "countryName": "Ethiopia",
+      "iso2": "ET",
+      "iso3": "ETH",
+      "regions": [
+        {
+          "name": "Āmara",
+          "code": "ET-AM",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Bīnshangul Gumuz",
+          "code": "ET-BE",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Oromīya",
+          "code": "ET-OR",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Tigray",
+          "code": "ET-TI",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Haiti",
+      "iso2": "HT",
+      "iso3": "HTI",
+      "regions": [
+        {
+          "name": "Artibonite",
+          "code": "HT-AR",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Centre",
+          "code": "HT-CE",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Ouest",
+          "code": "HT-OU",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "India",
+      "iso2": "IN",
+      "iso3": "IND",
+      "regions": [
+        {
+          "name": "Chhattisgarh",
+          "code": "IN-CT",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Jammu and Kashmir",
+          "code": "IN-JK",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Lebanon",
+      "iso2": "LB",
+      "iso3": "LBN",
+      "regions": [
+        {
+          "name": "South",
+          "code": "LB-JA",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Nabatiyeh",
+          "code": "LB-NA",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Libya",
+      "iso2": "LY",
+      "iso3": "LBY",
+      "regions": null,
+      "wholeCountry": true
+    },
+    {
+      "countryName": "Mali",
+      "iso2": "ML",
+      "iso3": "MLI",
+      "regions": [
+        {
+          "name": "Kayes",
+          "code": "ML-1",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Koulikoro",
+          "code": "ML-2",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Sikasso",
+          "code": "ML-3",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Ségou",
+          "code": "ML-4",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Mopti",
+          "code": "ML-5",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Tombouctou",
+          "code": "ML-6",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Gao",
+          "code": "ML-7",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kidal",
+          "code": "ML-8",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Mexico",
+      "iso2": "MX",
+      "iso3": "MEX",
+      "regions": [
+        {
+          "name": "Baja California",
+          "code": "MX-BCN",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Chihuahua",
+          "code": "MX-CHH",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Colima",
+          "code": "MX-COL",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Guerrero",
+          "code": "MX-GRO",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Guanajuato",
+          "code": "MX-GUA",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Jalisco",
+          "code": "MX-JAL",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "México",
+          "code": "MX-MEX",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Michoacán de Ocampo",
+          "code": "MX-MIC",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Sinaloa",
+          "code": "MX-SIN",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Zacatecas",
+          "code": "MX-ZAC",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Mozambique",
+      "iso2": "MZ",
+      "iso3": "MOZ",
+      "regions": [
+        {
+          "name": "Cabo Delgado",
+          "code": "MZ-P",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Myanmar",
+      "iso2": "MM",
+      "iso3": "MMR",
+      "regions": [
+        {
+          "name": "Sagaing",
+          "code": "MM-01",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Bago",
+          "code": "MM-02",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Magway",
+          "code": "MM-03",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Mandalay",
+          "code": "MM-04",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Tanintharyi",
+          "code": "MM-05",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Yangon",
+          "code": "MM-06",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Ayeyarwady",
+          "code": "MM-07",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kachin",
+          "code": "MM-11",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kayah",
+          "code": "MM-12",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kayin",
+          "code": "MM-13",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Chin",
+          "code": "MM-14",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Mon",
+          "code": "MM-15",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Rakhine",
+          "code": "MM-16",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Shan",
+          "code": "MM-17",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Nay Pyi Taw",
+          "code": "MM-18",
+          "conflictAffected": false,
+          "highRisk": true
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Niger",
+      "iso2": "NE",
+      "iso3": "NER",
+      "regions": [
+        {
+          "name": "Diffa",
+          "code": "NE-2",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Dosso",
+          "code": "NE-3",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Tahoua",
+          "code": "NE-5",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Tillabéri",
+          "code": "NE-6",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Nigeria",
+      "iso2": "NG",
+      "iso3": "NGA",
+      "regions": [
+        {
+          "name": "Adamawa",
+          "code": "NG-AD",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Borno",
+          "code": "NG-BO",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kaduna",
+          "code": "NG-KD",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kebbi",
+          "code": "NG-KE",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kwara",
+          "code": "NG-KW",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Niger",
+          "code": "NG-NI",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Sokoto",
+          "code": "NG-SO",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Yobe",
+          "code": "NG-YO",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Zamfara",
+          "code": "NG-ZA",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Pakistan",
+      "iso2": "PK",
+      "iso3": "PAK",
+      "regions": [
+        {
+          "name": "Balochistan",
+          "code": "PK-BA",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Khyber Pakhtunkhwa",
+          "code": "PK-KP",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Punjab",
+          "code": "PK-PB",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Russia",
+      "iso2": "RU",
+      "iso3": "RUS",
+      "regions": [
+        {
+          "name": "Belgorodskaya oblast'",
+          "code": "RU-BEL",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kurskaja oblast'",
+          "code": "RU-KRS",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Somalia",
+      "iso2": "SO",
+      "iso3": "SOM",
+      "regions": [
+        {
+          "name": "Awdal",
+          "code": "SO-AW",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Bakool",
+          "code": "SO-BK",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Banaadir",
+          "code": "SO-BN",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Bari",
+          "code": "SO-BR",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Bay",
+          "code": "SO-BY",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Galguduud",
+          "code": "SO-GA",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Gedo",
+          "code": "SO-GE",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Hiiraan",
+          "code": "SO-HI",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Jubbada Dhexe",
+          "code": "SO-JD",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Jubbada Hoose",
+          "code": "SO-JH",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Mudug",
+          "code": "SO-MU",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Nugaal",
+          "code": "SO-NU",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Sanaag",
+          "code": "SO-SA",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Shabeellaha Dhexe",
+          "code": "SO-SD",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Shabeellaha Hoose",
+          "code": "SO-SH",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Sool",
+          "code": "SO-SO",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Togdheer",
+          "code": "SO-TO",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Woqooyi Galbeed",
+          "code": "SO-WO",
+          "conflictAffected": false,
+          "highRisk": true
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "South Sudan",
+      "iso2": "SS",
+      "iso3": "SSD",
+      "regions": [
+        {
+          "name": "Northern Bahr el Ghazal",
+          "code": "SS-BN",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Western Bahr el  Ghazal",
+          "code": "SS-BW",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Central Equatoria",
+          "code": "SS-EC",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Eastern Equatoria",
+          "code": "SS-EE",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Western Equatoria",
+          "code": "SS-EW",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Jonglei",
+          "code": "SS-JG",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Lakes",
+          "code": "SS-LK",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Upper Nile",
+          "code": "SS-NU",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Unity",
+          "code": "SS-UY",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Warrap",
+          "code": "SS-WR",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Sudan",
+      "iso2": "SD",
+      "iso3": "SDN",
+      "regions": [
+        {
+          "name": "Central Darfur",
+          "code": "SD-DC",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "East Darfur",
+          "code": "SD-DE",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "North Darfur",
+          "code": "SD-DN",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "South Darfur",
+          "code": "SD-DS",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "West Darfur",
+          "code": "SD-DW",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Gedaref",
+          "code": "SD-GD",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "West Kordofan",
+          "code": "SD-GK",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Gezira",
+          "code": "SD-GZ",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Kassala",
+          "code": "SD-KA",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Khartoum",
+          "code": "SD-KH",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "North Kordofan",
+          "code": "SD-KN",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "South Kordofan",
+          "code": "SD-KS",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Blue Nile",
+          "code": "SD-NB",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Northern",
+          "code": "SD-NO",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "River Nile",
+          "code": "SD-NR",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "White Nile",
+          "code": "SD-NW",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Red Sea",
+          "code": "SD-RS",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Sennar",
+          "code": "SD-SI",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Ukraine",
+      "iso2": "UA",
+      "iso3": "UKR",
+      "regions": [
+        {
+          "name": "Luhans'k",
+          "code": "UA-09",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Dnipropetrovs'k",
+          "code": "UA-12",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Donets'k",
+          "code": "UA-14",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Zaporizhzhya",
+          "code": "UA-23",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kiev",
+          "code": "UA-35",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Sumy",
+          "code": "UA-59",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kharkiv",
+          "code": "UA-63",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Kherson",
+          "code": "UA-65",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Chernihiv",
+          "code": "UA-74",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Venezuela",
+      "iso2": "VE",
+      "iso3": "VEN",
+      "regions": null,
+      "wholeCountry": true
+    },
+    {
+      "countryName": "Yemen",
+      "iso2": "YE",
+      "iso3": "YEM",
+      "regions": [
+        {
+          "name": "Abyan",
+          "code": "YE-AB",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "‘Adan",
+          "code": "YE-AD",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "‘Amrān",
+          "code": "YE-AM",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Al Bayḑā’",
+          "code": "YE-BA",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Aḑ Ḑāli‘",
+          "code": "YE-DA",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Dhamār",
+          "code": "YE-DH",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Ḩaḑramawt",
+          "code": "YE-HD",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Ḩajjah",
+          "code": "YE-HJ",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Al Ḩudaydah",
+          "code": "YE-HU",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Ibb",
+          "code": "YE-IB",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Al Jawf",
+          "code": "YE-JA",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Laḩij",
+          "code": "YE-LA",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Ma’rib",
+          "code": "YE-MA",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Al Mahrah",
+          "code": "YE-MR",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Al Maḩwīt",
+          "code": "YE-MW",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Raymah",
+          "code": "YE-RA",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Amānat al ‘Āşimah [city]",
+          "code": "YE-SA",
+          "conflictAffected": false,
+          "highRisk": true
+        },
+        {
+          "name": "Şāʻdah",
+          "code": "YE-SD",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Shabwah",
+          "code": "YE-SH",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Şanʻā’",
+          "code": "YE-SN",
+          "conflictAffected": true,
+          "highRisk": false
+        },
+        {
+          "name": "Tāʻizz",
+          "code": "YE-TA",
+          "conflictAffected": true,
+          "highRisk": false
+        }
+      ],
+      "wholeCountry": false
+    },
+    {
+      "countryName": "Zimbabwe",
+      "iso2": "ZW",
+      "iso3": "ZWE",
+      "regions": null,
+      "wholeCountry": true
+    }
+  ]
+}

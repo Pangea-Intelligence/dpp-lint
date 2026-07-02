@@ -1,0 +1,5 @@
+{
+  "supplyChainDueDiligenceReport": "telnet://192.0.2.16:80/",
+  "supplyChainIndicies": 2.1624482e+38,
+  "thirdPartyAussurances": "ftp://ftp.is.co.za/rfc/rfc1808.txt"
+}

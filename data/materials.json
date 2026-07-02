@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "source": "Regulation (EU) 2023/1542, Annex X, point 1 (list of raw materials in scope of the supply chain due diligence obligations, Art. 48-52)",
+    "sourceUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R1542",
+    "machineSourceUrl": "http://publications.europa.eu/resource/celex/32023R1542",
+    "retrieved": "2026-07-02",
+    "license": "EUR-Lex / EU Publications Office: reuse of EU legal texts permitted (Commission Decision 2011/833/EU), attribution required",
+    "note": "Annex X point 1 lists: (a) cobalt; (b) natural graphite; (c) lithium; (d) nickel; and (e) chemical compounds based on the raw materials listed in points (a) to (d), which are necessary for the manufacturing of the active materials of batteries. Point (e) is a derived category, not a separate raw material, and is therefore represented by the coversCompounds flag on each entry. CAS registry numbers are well-established reference values for the elemental or mineral form, not for every compound in scope.",
+    "transformation": "Annex X point 1 items (a)-(d) transcribed verbatim from the regulation XHTML served by the EU Publications Office Cellar (the EUR-Lex HTML URL is behind an AWS WAF challenge for non-browser clients); wording verified programmatically by scripts/fetch-materials.mjs. ids, symbols, CAS numbers and synonyms added editorially."
+  },
+  "materials": [
+    {
+      "id": "cobalt",
+      "name": "cobalt",
+      "annexXPoint": "1(a)",
+      "symbol": "Co",
+      "cas": "7440-48-4",
+      "synonyms": [
+        "Co",
+        "cobalt metal"
+      ],
+      "coversCompounds": true,
+      "regulationRef": "EU 2023/1542 Annex X(1)"
+    },
+    {
+      "id": "natural-graphite",
+      "name": "natural graphite",
+      "annexXPoint": "1(b)",
+      "symbol": "C",
+      "cas": "7782-42-5",
+      "synonyms": [
+        "graphite",
+        "graphite, natural",
+        "flake graphite",
+        "amorphous graphite",
+        "vein graphite"
+      ],
+      "coversCompounds": true,
+      "regulationRef": "EU 2023/1542 Annex X(1)"
+    },
+    {
+      "id": "lithium",
+      "name": "lithium",
+      "annexXPoint": "1(c)",
+      "symbol": "Li",
+      "cas": "7439-93-2",
+      "synonyms": [
+        "Li",
+        "lithium metal"
+      ],
+      "coversCompounds": true,
+      "regulationRef": "EU 2023/1542 Annex X(1)"
+    },
+    {
+      "id": "nickel",
+      "name": "nickel",
+      "annexXPoint": "1(d)",
+      "symbol": "Ni",
+      "cas": "7440-02-0",
+      "synonyms": [
+        "Ni",
+        "nickel metal"
+      ],
+      "coversCompounds": true,
+      "regulationRef": "EU 2023/1542 Annex X(1)"
+    }
+  ]
+}

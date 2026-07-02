@@ -1,0 +1,34 @@
+dpp-lint
+Copyright 2026 Pangea Intelligence (https://pangea-intelligence.eu)
+
+This product includes data model artifacts (JSON Schemas and example
+payloads) derived from the Battery Pass Data Model:
+
+  https://github.com/batterypass/BatteryPassDataModel
+
+The Battery Pass Data Model was created by the Battery Pass Consortium
+(thebatterypass.eu) and is licensed under the Creative Commons
+Attribution 4.0 International License (CC-BY-4.0):
+
+  https://creativecommons.org/licenses/by/4.0/
+
+The vendored schemas under ./schemas/ may contain fixes relative to the
+upstream repository. All modifications are documented in
+./schemas/PATCHES.md.
+
+License note on the vendored TTL sources (./ttl/): the upstream project
+standardized its license to CC-BY-4.0 in October 2025; the TTL file
+headers carry "SPDX-License-Identifier: CC-BY-4.0" accordingly. Some
+Aspect-level samm:description literals inside those files still embed a
+stale earlier boilerplate paragraph referring to CC BY-NC 4.0. We treat
+the file headers, the SPDX identifiers and the upstream README (all
+CC-BY-4.0) as authoritative, and strip the stale paragraph from our
+generated artifacts (see ./schemas/PATCHES.md section 5).
+
+This product bundles snapshots of open datasets for risk screening,
+documented with source and license in ./data/SOURCES.md, including:
+
+  - EU indicative list of Conflict-Affected and High-Risk Areas (CAHRA),
+    https://www.cahraslist.net/
+  - Responsible Minerals Initiative (RMI) public facility lists,
+    https://www.responsiblemineralsinitiative.org/

@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "generator": "scripts/fetch-rmi.mjs --empty",
+    "retrieved": null,
+    "termsNote": "RMI facility lists are published behind a click-wrap license (RBA Terms and Conditions) that prohibits redistribution without prior written consent. This file therefore ships empty in the dpp-lint repository. Populate it locally with: node scripts/fetch-rmi.mjs --accept-rmi-terms (by doing so you accept RMI's Terms and Conditions for your own personal use of the data).",
+    "sources": [
+      {
+        "name": "RMI Public List (all assessed facilities, incl. cobalt/lithium/nickel)",
+        "url": "https://www.responsiblemineralsinitiative.org/facilities-lists/public-list/"
+      },
+      {
+        "name": "RMI Cobalt Refiners list (conformant)",
+        "url": "https://www.responsiblemineralsinitiative.org/cobalt-refiners-list/conformant-cobalt-refiners/"
+      },
+      {
+        "name": "RMI Cobalt Refiners list (active)",
+        "url": "https://www.responsiblemineralsinitiative.org/cobalt-refiners-list/active-cobalt-refiners/"
+      }
+    ],
+    "counts": {
+      "total": 0
+    }
+  },
+  "facilities": []
+}
