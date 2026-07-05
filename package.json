@@ -17,11 +17,11 @@
   ],
   "license": "Apache-2.0",
   "author": "Pangea Intelligence <contact@pangea-intelligence.eu> (https://pangea-intelligence.eu)",
-  "homepage": "https://github.com/pangea-intelligence/dpp-lint",
-  "bugs": "https://github.com/pangea-intelligence/dpp-lint/issues",
+  "homepage": "https://github.com/Pangea-Intelligence/dpp-lint",
+  "bugs": "https://github.com/Pangea-Intelligence/dpp-lint/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pangea-intelligence/dpp-lint.git"
+    "url": "git+https://github.com/Pangea-Intelligence/dpp-lint.git"
   },
   "type": "module",
   "engines": {
