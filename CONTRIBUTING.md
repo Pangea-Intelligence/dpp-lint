@@ -44,3 +44,19 @@ The open datasets used by the `risk` command (EU CAHRA list, RMI public facility
 - Code, comments and docs are in English. No em dashes, use plain hyphens.
 - Do not bump dependencies or the package version as a side effect of a feature PR.
 - Exit-code contract is stable API: `0` = clean, `1` = findings, `2` = usage or internal error. Changes to it need discussion first.
+
+## Releasing
+
+Releases are cut from `main` by a maintainer:
+
+1. Bump the version in `package.json`.
+2. Add a matching section to `CHANGELOG.md`.
+3. Commit both, then tag and push the tag:
+
+```sh
+git commit package.json CHANGELOG.md -m "chore: release X.Y.Z"
+git tag vX.Y.Z
+git push origin main vX.Y.Z
+```
+
+Pushing the `vX.Y.Z` tag triggers `.github/workflows/release.yml`, which builds, tests and publishes the package to npm with provenance. There is no npm token in CI; this relies on npm Trusted Publishing (OIDC) being configured for the `dpp-lint` package on npmjs.com (repository `Pangea-Intelligence/dpp-lint`, workflow `release.yml`).
