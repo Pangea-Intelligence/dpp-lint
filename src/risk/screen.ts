@@ -103,9 +103,37 @@ function screenR1(entries: OriginEntry[]): RiskFinding[] {
 
 // Common corporate suffixes, removed before name comparison.
 const LEGAL_SUFFIXES = new Set([
-  'ltd', 'limited', 'llc', 'inc', 'incorporated', 'corp', 'corporation', 'co',
-  'company', 'gmbh', 'ag', 'sa', 'sarl', 'plc', 'pte', 'pty', 'bv', 'nv', 'kk',
-  'srl', 'sdn', 'bhd', 'spa', 'sas', 'oy', 'ab', 'as', 'kft', 'ooo', 'pjsc', 'jsc',
+  'ltd',
+  'limited',
+  'llc',
+  'inc',
+  'incorporated',
+  'corp',
+  'corporation',
+  'co',
+  'company',
+  'gmbh',
+  'ag',
+  'sa',
+  'sarl',
+  'plc',
+  'pte',
+  'pty',
+  'bv',
+  'nv',
+  'kk',
+  'srl',
+  'sdn',
+  'bhd',
+  'spa',
+  'sas',
+  'oy',
+  'ab',
+  'as',
+  'kft',
+  'ooo',
+  'pjsc',
+  'jsc',
 ]);
 
 /** Lowercase, strip diacritics and punctuation, drop legal suffixes. */
@@ -125,7 +153,9 @@ function facilityMatchesMetal(facility: RmiFacility, materialName: string | null
   const facilityMetal = (facility.metal ?? '').toLowerCase();
   if (facilityMetal === 'multiple') return true;
   const wanted = materialName.toLowerCase();
-  return facilityMetal === wanted || (wanted === 'natural graphite' && facilityMetal === 'graphite');
+  return (
+    facilityMetal === wanted || (wanted === 'natural graphite' && facilityMetal === 'graphite')
+  );
 }
 
 function screenR2(entries: OriginEntry[]): RiskFinding[] {
@@ -143,7 +173,7 @@ function screenR2(entries: OriginEntry[]): RiskFinding[] {
     if (!smelter) continue;
 
     const materialName = entry.materialId
-      ? loadMaterials().materials.find((m) => m.id === entry.materialId)?.name ?? null
+      ? (loadMaterials().materials.find((m) => m.id === entry.materialId)?.name ?? null)
       : null;
     const candidates = rmi.facilities.filter((f) => facilityMatchesMetal(f, materialName));
 
@@ -209,7 +239,9 @@ function payloadMaterials(payload: unknown): PayloadMaterial[] {
     const record = item as Record<string, unknown>;
     const name = typeof record.batteryMaterialName === 'string' ? record.batteryMaterialName : null;
     const cas =
-      typeof record.batteryMaterialIdentifier === 'string' ? record.batteryMaterialIdentifier : null;
+      typeof record.batteryMaterialIdentifier === 'string'
+        ? record.batteryMaterialIdentifier
+        : null;
     const matched =
       (name ? matchMaterial(name) : undefined) ?? (cas ? matchMaterial(cas) : undefined);
     out.push({
@@ -339,9 +371,7 @@ function screenR4(payload: unknown): RiskFinding[] {
     !Object.prototype.hasOwnProperty.call(payload, 'supplyChainDueDiligenceReport');
   const detection = detectModule(payload);
   const foreignModule =
-    fieldAbsent &&
-    detection.kind === 'detected' &&
-    detection.module !== 'SupplyChainDueDiligence';
+    fieldAbsent && detection.kind === 'detected' && detection.module !== 'SupplyChainDueDiligence';
 
   return [
     {

@@ -68,9 +68,7 @@ interface RawEntry {
 function validateCountry(code: string, field: string, context: string, warnings: string[]): string {
   const normalized = code.trim().toUpperCase();
   if (!/^[A-Z]{2}$/.test(normalized)) {
-    warnings.push(
-      `${context}: ${field} "${code}" is not a two-letter ISO 3166-1 alpha-2 code`
-    );
+    warnings.push(`${context}: ${field} "${code}" is not a two-letter ISO 3166-1 alpha-2 code`);
     return normalized;
   }
   if (!isKnownCountryCode(normalized)) {
@@ -169,7 +167,11 @@ function parseOriginsJson(value: unknown, file: string): ParsedOrigins {
     let smelterId: string | undefined;
     let smelterCountry: string | undefined;
     if (record.smelter !== undefined) {
-      if (typeof record.smelter !== 'object' || record.smelter === null || Array.isArray(record.smelter)) {
+      if (
+        typeof record.smelter !== 'object' ||
+        record.smelter === null ||
+        Array.isArray(record.smelter)
+      ) {
         throw new OriginsError(`${context}: "smelter" must be an object with a "name"`);
       }
       const smelter = record.smelter as Record<string, unknown>;
@@ -296,7 +298,9 @@ function parseOriginsCsv(text: string, file: string): ParsedOrigins {
     if (shareText !== '') {
       share = Number(shareText);
       if (!Number.isFinite(share)) {
-        throw new OriginsError(`${context}: "share" must be a number between 0 and 1, got "${shareText}"`);
+        throw new OriginsError(
+          `${context}: "share" must be a number between 0 and 1, got "${shareText}"`
+        );
       }
     }
 
@@ -348,7 +352,9 @@ export function parseOriginsFile(filePath: string): ParsedOrigins {
     if (err instanceof OriginsError) throw err;
     const e = err as NodeJS.ErrnoException;
     throw new OriginsError(
-      e.code === 'ENOENT' ? `${filePath}: file not found` : `${filePath}: cannot read file (${e.message})`
+      e.code === 'ENOENT'
+        ? `${filePath}: file not found`
+        : `${filePath}: cannot read file (${e.message})`
     );
   }
 

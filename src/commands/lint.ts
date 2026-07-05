@@ -60,9 +60,7 @@ export async function runLint(files: string[], opts: LintOptions): Promise<numbe
   if (opts.module !== undefined) {
     if (!isModuleName(opts.module)) {
       console.error(
-        pc.red(
-          `dpp-lint: unknown module "${opts.module}". Valid modules: ${MODULES.join(', ')}`
-        )
+        pc.red(`dpp-lint: unknown module "${opts.module}". Valid modules: ${MODULES.join(', ')}`)
       );
       return 2;
     }
@@ -102,10 +100,9 @@ export async function runLint(files: string[], opts: LintOptions): Promise<numbe
               {
                 pointer: '',
                 keyword: 'module-detection',
-                message:
-                  `module auto-detection is ambiguous (candidates: ${detection.candidates.join(
-                    ', '
-                  )}). Re-run with --module <name>.`,
+                message: `module auto-detection is ambiguous (candidates: ${detection.candidates.join(
+                  ', '
+                )}). Re-run with --module <name>.`,
               },
             ],
           };
@@ -141,8 +138,7 @@ export async function runLint(files: string[], opts: LintOptions): Promise<numbe
         errors: valid ? [] : toFindings(module, errors, data),
       };
     } catch (err) {
-      const message =
-        err instanceof ReadError ? err.message : `${file}: ${(err as Error).message}`;
+      const message = err instanceof ReadError ? err.message : `${file}: ${(err as Error).message}`;
       result = {
         file,
         module: null,

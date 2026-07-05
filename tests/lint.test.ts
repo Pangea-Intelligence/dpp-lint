@@ -151,12 +151,10 @@ describe('mutated payloads (v0.2 modules)', () => {
     expect(valid).toBe(false);
     expect(
       findings.some(
-        (f) =>
-          f.pointer === '/sparePartSources/0/emailAddressOfSupplier' && f.keyword === 'pattern'
+        (f) => f.pointer === '/sparePartSources/0/emailAddressOfSupplier' && f.keyword === 'pattern'
       )
     ).toBe(true);
   });
-
 });
 
 describe('encoding support', () => {
@@ -236,7 +234,9 @@ describe('email regex fix (upstream issue #54)', () => {
     const { valid, findings } = lintErrors('GeneralProductInformation', mutated);
     expect(valid).toBe(false);
     expect(
-      findings.some((f) => f.pointer === '/operatorInformation/emailAddress' && f.keyword === 'pattern')
+      findings.some(
+        (f) => f.pointer === '/operatorInformation/emailAddress' && f.keyword === 'pattern'
+      )
     ).toBe(true);
   });
 });

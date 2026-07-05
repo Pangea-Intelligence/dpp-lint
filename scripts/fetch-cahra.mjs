@@ -10,27 +10,27 @@
 //
 // Re-runnable: node scripts/fetch-cahra.mjs
 
-import { writeFileSync, readFileSync, existsSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { writeFileSync, existsSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const API = "https://cahra-api.cahraslist.net/api/v1/cahras";
-const CHANGELOG = "https://cahra-api.cahraslist.net/api/v1/changelog/latest";
+const API = 'https://cahra-api.cahraslist.net/api/v1/cahras';
+const CHANGELOG = 'https://cahra-api.cahraslist.net/api/v1/changelog/latest';
 
 const HEADERS = {
-  "User-Agent":
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
-  Accept: "application/json, text/plain, */*",
-  Origin: "https://www.cahraslist.net",
-  Referer: "https://www.cahraslist.net/",
+  'User-Agent':
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15',
+  Accept: 'application/json, text/plain, */*',
+  Origin: 'https://www.cahraslist.net',
+  Referer: 'https://www.cahraslist.net/',
 };
 
 function packageRoot(startDir) {
   let dir = startDir;
   for (;;) {
-    if (existsSync(join(dir, "package.json"))) return dir;
+    if (existsSync(join(dir, 'package.json'))) return dir;
     const parent = dirname(dir);
-    if (parent === dir) throw new Error("package.json not found above " + startDir);
+    if (parent === dir) throw new Error('package.json not found above ' + startDir);
     dir = parent;
   }
 }
@@ -46,7 +46,7 @@ let changelog = null;
 try {
   changelog = await getJson(CHANGELOG);
 } catch (err) {
-  console.error("warning: changelog fetch failed:", err.message);
+  console.error('warning: changelog fetch failed:', err.message);
 }
 
 // Shape of `raw`: [{ count, country_code (ISO3), country_name, reports: [{
@@ -74,7 +74,7 @@ const entries = raw
     }
     const regions = [...regionMap.values()].sort((a, b) => a.code.localeCompare(b.code));
     // ISO2 derived from the ISO 3166-2 subdivision code prefix (e.g. "AF-BDS" -> "AF").
-    const iso2 = regions.length > 0 ? regions[0].code.split("-")[0] : null;
+    const iso2 = regions.length > 0 ? regions[0].code.split('-')[0] : null;
     return {
       countryName: c.country_name,
       iso2,
@@ -89,22 +89,22 @@ const entries = raw
 const out = {
   meta: {
     source: API,
-    website: "https://www.cahraslist.net/",
+    website: 'https://www.cahraslist.net/',
     retrieved: new Date().toISOString().slice(0, 10),
-    version: [...versions].sort().join("; "),
-    dataUpdated: changelog?.data_updated?.["$date"] ?? null,
-    reportsUpdated: changelog?.reports_updated?.["$date"] ?? null,
+    version: [...versions].sort().join('; '),
+    dataUpdated: changelog?.data_updated?.['$date'] ?? null,
+    reportsUpdated: changelog?.reports_updated?.['$date'] ?? null,
     license:
-      "Indicative, non-exhaustive list of CAHRAs under EU Regulation 2017/821, maintained by RAND Europe for the European Commission (DG TRADE). Public information; no explicit license published on cahraslist.net. Not an official or exhaustive EU designation.",
+      'Indicative, non-exhaustive list of CAHRAs under EU Regulation 2017/821, maintained by RAND Europe for the European Commission (DG TRADE). Public information; no explicit license published on cahraslist.net. Not an official or exhaustive EU designation.',
     transformation:
-      "One entry per country. Region reports merged and deduplicated by ISO 3166-2 code. regions=null and wholeCountry=true when the source marks the designation as country-level. iso2 derived from ISO 3166-2 subdivision code prefix.",
+      'One entry per country. Region reports merged and deduplicated by ISO 3166-2 code. regions=null and wholeCountry=true when the source marks the designation as country-level. iso2 derived from ISO 3166-2 subdivision code prefix.',
   },
   entries,
 };
 
 const root = packageRoot(dirname(fileURLToPath(import.meta.url)));
-const target = join(root, "data", "cahra.json");
-writeFileSync(target, JSON.stringify(out, null, 2) + "\n");
+const target = join(root, 'data', 'cahra.json');
+writeFileSync(target, JSON.stringify(out, null, 2) + '\n');
 const regionCount = entries.reduce((n, e) => n + (e.regions?.length ?? 0), 0);
 console.log(
   `wrote ${target}: ${entries.length} countries, ${regionCount} listed regions, ` +

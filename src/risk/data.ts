@@ -64,7 +64,8 @@ function loadJson<T>(relative: string): T {
     throw new Error(
       `dpp-lint internal error: cannot load bundled dataset ${filePath}: ${
         err instanceof Error ? err.message : String(err)
-      }`
+      }`,
+      { cause: err }
     );
   }
 }
@@ -96,7 +97,10 @@ export function findCahraEntry(iso2: string): CahraEntry | undefined {
 
 /** Lowercases and collapses separators so "Natural_Graphite" matches "natural graphite". */
 function canonicalToken(value: string): string {
-  return value.trim().toLowerCase().replace(/[\s_-]+/g, ' ');
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[\s_-]+/g, ' ');
 }
 
 /**

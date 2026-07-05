@@ -4,12 +4,7 @@ import { readFileSync, statSync } from 'node:fs';
 export const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
 export type DetectedEncoding =
-  | 'utf-8'
-  | 'utf-8 (BOM)'
-  | 'utf-16le (BOM)'
-  | 'utf-16be (BOM)'
-  | 'utf-16le'
-  | 'utf-16be';
+  'utf-8' | 'utf-8 (BOM)' | 'utf-16le (BOM)' | 'utf-16be (BOM)' | 'utf-16le' | 'utf-16be';
 
 export interface PayloadFile {
   /** Parsed JSON value. */
@@ -22,12 +17,7 @@ export interface PayloadFile {
 export class ReadError extends Error {
   constructor(
     public readonly code:
-      | 'NOT_FOUND'
-      | 'NOT_A_FILE'
-      | 'TOO_LARGE'
-      | 'UNREADABLE'
-      | 'BAD_ENCODING'
-      | 'BAD_JSON',
+      'NOT_FOUND' | 'NOT_A_FILE' | 'TOO_LARGE' | 'UNREADABLE' | 'BAD_ENCODING' | 'BAD_JSON',
     message: string
   ) {
     super(message);

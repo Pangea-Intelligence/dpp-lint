@@ -12,7 +12,7 @@
 //        (no module args = all known modules)
 // Plain Node >= 20, no dependencies.
 
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -126,7 +126,10 @@ for (const module of modules) {
   const schemaBuf = await fetchBytes(`${base}/gen/${module}-schema.json`);
   writeIfAllowed(
     path.join(root, 'schemas', 'battery', VERSION, `${module}.schema.json`),
-    schemaBuf, force, written, skipped
+    schemaBuf,
+    force,
+    written,
+    skipped
   );
 
   const ttlBuf = await fetchBytes(`${base}/${module}.ttl`);
@@ -137,7 +140,10 @@ for (const module of modules) {
   const payload = JSON.parse(decodeUpstreamJson(payloadBuf, payloadName));
   writeIfAllowed(
     path.join(root, 'fixtures', 'battery', `${module}.payload.json`),
-    JSON.stringify(payload, null, 2) + '\n', force, written, skipped
+    JSON.stringify(payload, null, 2) + '\n',
+    force,
+    written,
+    skipped
   );
 }
 

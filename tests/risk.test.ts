@@ -45,12 +45,11 @@ const materialPayload = readPayload(materialFixture).data as Record<string, unkn
 describe('bundled datasets', () => {
   it('loads the CAHRA, RMI and materials snapshots', () => {
     expect(loadCahra().entries.length).toBeGreaterThan(0);
-    expect(loadMaterials().materials.map((material) => material.id).sort()).toEqual([
-      'cobalt',
-      'lithium',
-      'natural-graphite',
-      'nickel',
-    ]);
+    expect(
+      loadMaterials()
+        .materials.map((material) => material.id)
+        .sort()
+    ).toEqual(['cobalt', 'lithium', 'natural-graphite', 'nickel']);
   });
 
   it('matches materials by name, synonym and CAS', () => {

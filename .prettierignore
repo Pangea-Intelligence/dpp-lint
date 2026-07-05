@@ -1,0 +1,18 @@
+# Prettier scope is deliberately narrow: only TypeScript/JS sources.
+# Vendored schemas, data snapshots, fixtures and docs must not drift.
+dist/
+node_modules/
+coverage/
+package-lock.json
+schemas/
+data/
+fixtures/
+examples/
+templates/
+spec/
+docs/
+ttl/
+*.md
+*.json
+*.yml
+*.yaml

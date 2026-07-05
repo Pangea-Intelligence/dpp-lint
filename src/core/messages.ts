@@ -93,7 +93,10 @@ function attributeFromPointer(pointer: string): string | undefined {
   return undefined;
 }
 
-function describeError(err: ErrorObject, payload: unknown): { pointer: string; message: string; attribute?: string } {
+function describeError(
+  err: ErrorObject,
+  payload: unknown
+): { pointer: string; message: string; attribute?: string } {
   const basePointer = err.instancePath ?? '';
   switch (err.keyword) {
     case 'required': {
