@@ -20,18 +20,20 @@ npx dpp-lint lint payload.json
 npx dpp-lint risk payload.json --origins origins.json
 ```
 
-Example (output is illustrative):
+Example output for a payload with two mistakes:
 
 ```
 $ npx dpp-lint lint payload.json
 
-dpp-lint v0.1.0 · profile: battery
+dpp-lint 0.4.0 - by Pangea Intelligence
 
-payload.json  [MaterialComposition]
-  error  /batteryMaterials/0/batteryMaterialMass   must be a number
-  error  /batteryChemistry                         required property missing
+FAIL  payload.json (MaterialComposition) - 2 findings
+  /batteryChemistry  required attribute "batteryChemistry" is missing
+      product chemistry - DIN DKE SPEC 99100 ch. 6.5.2
+  /batteryMaterials/0/batteryMaterialMass  expected type number, got string
+      weight
 
-1 file checked · 2 errors
+1 file checked, 0 passed, 1 failed
 ```
 
 Want a realistic end-to-end scenario? [`examples/brandt-foerdertechnik/`](examples/brandt-foerdertechnik/) walks through a fictional mid-market machine builder checking the passport files its battery supplier delivered - including the four mistakes hidden in them.
@@ -104,7 +106,7 @@ The repository doubles as a GitHub Action, so passport payloads can be
 checked on every push or pull request with three lines:
 
 ```yaml
-- uses: Pangea-Intelligence/dpp-lint@v0.3.0
+- uses: Pangea-Intelligence/dpp-lint@v0.4.0
   with:
     files: passports/*.json
 ```
@@ -113,6 +115,14 @@ Inputs: `command` (`lint` | `risk`, default `lint`), `files` (required),
 `origins` (for `risk`), `module`, `version` (npm version to run, default
 `latest`) and `args` for anything else (e.g. `--json`). The job fails when
 dpp-lint returns findings, exactly like the CLI exit codes.
+
+Security note: the action passes all inputs to its shell step as
+environment variables, so input content cannot execute shell code. The
+`args` and `files` inputs are deliberately word-split (globs in `files`
+are expanded by bash), which means their content becomes extra CLI
+arguments. Use only trusted, static values for these two inputs; never
+feed them from untrusted data such as PR titles, branch names or issue
+text, or that data could inject additional dpp-lint flags.
 
 ## Origins file format
 
