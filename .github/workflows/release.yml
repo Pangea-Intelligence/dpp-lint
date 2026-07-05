@@ -1,0 +1,49 @@
+# Publishes dpp-lint to npm on version tags (v*).
+#
+# No NODE_AUTH_TOKEN secret: publishing runs via npm Trusted Publishing (OIDC).
+# This requires Trusted Publishing to be configured for the package "dpp-lint"
+# on npmjs.com (repository Pangea-Intelligence/dpp-lint, workflow release.yml).
+
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      # Actions are pinned to commit SHAs, not mutable tags: this workflow
+      # holds id-token: write for npm Trusted Publishing, so a hijacked tag
+      # must not be able to swap the action code underneath us.
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      # npm Trusted Publishing via OIDC needs npm >= 11.5.1, Node 22 bundles
+      # an older npm. Pinned to an exact version for reproducible releases.
+      - name: Update npm
+        run: npm install -g npm@11.18.0
+
+      # --ignore-scripts: no lifecycle scripts of third-party (dev) deps in a
+      # job that holds id-token: write. Build and tests do not need them.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm test
+
+      - name: Publish to npm
+        run: npm publish --provenance --access public
