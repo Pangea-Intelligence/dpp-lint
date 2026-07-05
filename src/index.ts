@@ -9,6 +9,7 @@
 // Commands (same entry points the CLI uses; they return the process exit code).
 export { runLint, type LintOptions, type FileResult } from './commands/lint.js';
 export { runRisk, type RiskOptions } from './commands/risk.js';
+export { runTemplate, type TemplateOptions } from './commands/template.js';
 
 // Payload reading and encoding detection.
 export {
