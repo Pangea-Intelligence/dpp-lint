@@ -37,20 +37,33 @@ runs:
   steps:
     - name: Run dpp-lint
       shell: bash
+      # Inputs come in via env: as variables, NOT via ${{ }} interpolation
+      # into the script text. Otherwise any input (fed from a PR title,
+      # branch name etc.) would be a script injection: crafted quotes would
+      # break out of the script and run on the runner.
+      env:
+        INPUT_COMMAND: ${{ inputs.command }}
+        INPUT_VERSION: ${{ inputs.version }}
+        INPUT_ORIGINS: ${{ inputs.origins }}
+        INPUT_MODULE: ${{ inputs.module }}
+        INPUT_ARGS: ${{ inputs.args }}
+        INPUT_FILES: ${{ inputs.files }}
       run: |
-        CMD=(npx --yes "dpp-lint@${{ inputs.version }}" "${{ inputs.command }}")
-        if [ "${{ inputs.command }}" = "risk" ] && [ -n "${{ inputs.origins }}" ]; then
-          CMD+=(--origins "${{ inputs.origins }}")
+        set -euo pipefail
+        CMD=(npx --yes "dpp-lint@$INPUT_VERSION" "$INPUT_COMMAND")
+        if [ "$INPUT_COMMAND" = "risk" ] && [ -n "$INPUT_ORIGINS" ]; then
+          CMD+=(--origins "$INPUT_ORIGINS")
         fi
-        if [ "${{ inputs.command }}" = "lint" ] && [ -n "${{ inputs.module }}" ]; then
-          CMD+=(--module "${{ inputs.module }}")
+        if [ "$INPUT_COMMAND" = "lint" ] && [ -n "$INPUT_MODULE" ]; then
+          CMD+=(--module "$INPUT_MODULE")
         fi
-        if [ -n "${{ inputs.args }}" ]; then
-          # shellcheck disable=SC2206
-          CMD+=(${{ inputs.args }})
+        if [ -n "$INPUT_ARGS" ]; then
+          # Deliberately unquoted: args is a space-separated list.
+          # shellcheck disable=SC2086,SC2206
+          CMD+=($INPUT_ARGS)
         fi
-        # Globs in inputs.files are expanded by bash here.
-        # shellcheck disable=SC2206
-        CMD+=(${{ inputs.files }})
+        # Deliberately unquoted: globs in INPUT_FILES are expanded by bash here.
+        # shellcheck disable=SC2086,SC2206
+        CMD+=($INPUT_FILES)
         echo "Running: ${CMD[*]}"
         "${CMD[@]}"
